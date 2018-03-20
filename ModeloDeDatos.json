@@ -1,0 +1,79 @@
+{
+	"Nombre_del_local":"Bronx",
+	"Direccion":
+	{
+		"calle":"Fuerte Argentino",
+		"altura":600
+	},
+	"Tipo":"Cerveceria",
+	"Horario_De_Apertura":{
+		"horas":18,
+		"minutos":30
+	},
+	"Horario_De_Cierre":{
+		"horas":04,
+		"minutos":00	
+	},
+	"Telefono":4500000,
+	"Clasificacion":4.3
+}
+
+{
+	"Nombre_del_local":"Club Universitario",
+	"Direccion":
+	{
+		"calle":"San Juan",
+		"altura":60
+	},
+	"Tipo":"Boliche",
+	"Horario_De_Apertura":{
+		"horas":01,
+		"minutos":30
+	},
+	"Horario_De_Cierre":{
+		"horas":05,
+		"minutos":30	
+	},
+	"Telefono":4500000,
+	"Clasificacion":5.0
+}
+
+{
+	"Nombre_del_local":"Chocolate Disco",
+	"Direccion":
+	{
+		"calle":"Fuerte Argentino",
+		"altura":150
+	},
+	"Tipo":"Boliche",
+	"Horario_De_Apertura":{
+		"horas":01,
+		"minutos":30
+	},
+	"Horario_De_Cierre":{
+		"horas":05,
+		"minutos":30	
+	},
+	"Telefono":4500000,
+	"Clasificacion":4.0
+}
+
+{
+	"Nombre_del_local":"Wir Konnen",
+	"Direccion":
+	{
+		"calle":"11 de Abril",
+		"altura":500
+	},
+	"Tipo":"Cerveceria",
+	"Horario_De_Apertura":{
+		"horas":18,
+		"minutos":00
+	},
+	"Horario_De_Cierre":{
+		"horas":03,
+		"minutos":00	
+	},
+	"Telefono":4500000,
+	"Clasificacion":4.6
+}

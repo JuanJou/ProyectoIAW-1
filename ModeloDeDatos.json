@@ -1,9 +1,10 @@
 {
 	"Nombre_del_local":"Bronx",
-	"Direccion":
+	"ID":1,
+	"Ubicacion":
 	{
-		"calle":"Fuerte Argentino",
-		"altura":600
+		"latitud":5000,
+		"longitud":600
 	},
 	"Tipo":"Cerveceria",
 	"Horario_De_Apertura":[{
@@ -42,10 +43,11 @@
 
 {
 	"Nombre_del_local":"Club Universitario",
-	"Direccion":
+	"ID":2,
+	"Ubicacion":
 	{
-		"calle":"San Juan",
-		"altura":60
+		"latitud":3000,
+		"longitud":60
 	},
 	"Tipo":"Boliche",
 	"Horario":[{
@@ -64,10 +66,11 @@
 
 {
 	"Nombre_del_local":"Chocolate Disco",
-	"Direccion":
+	"ID":3,
+	"Ubicacion":
 	{
-		"calle":"Fuerte Argentino",
-		"altura":150
+		"latitud":80000,
+		"longitud":150
 	},
 	"Tipo":"Boliche",
 	"Horario":[{
@@ -86,10 +89,11 @@
 
 {
 	"Nombre_del_local":"Wir Konnen",
-	"Direccion":
+	"ID":4,
+	"Ubicacion":
 	{
-		"calle":"11 de Abril",
-		"altura":500
+		"latitud":90000,
+		"longitud":500
 	},
 	"Tipo":"Cerveceria",
 	"Horario_De_Apertura":[{

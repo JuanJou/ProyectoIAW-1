@@ -134,6 +134,7 @@
 {
 	"ID":1,
 	"Nombre":"Juan Francisco",
+	"Contraseña":"***********",
 	"Apellido":"Jouglard",
 	"Genero":"Masculino",
 	"Edad":20
@@ -142,6 +143,7 @@
 {
 	"ID":2,
 	"Nombre":"Juan",
+	"Contraseña":"***********",
 	"Apellido":"Dimatz",
 	"Genero":"Masculino",
 	"Edad":21
@@ -162,21 +164,3 @@
 }
 
  
-
-Esta aplicación web tiene el objetivo de brindar una forma de conocer las posibilidades que existen en Bahía Blanca para salir a la noche. 
-
-La misma incluirá un mapa donde podremos visualizar las diferentes alternativas y la distancia que tenemos hasta ellas. Podremos realizar un filtrado eligiendo que se visualicen solamente cervecerías, boliches, restaurants, etc.  
-
-Además, podremos filtrar por horario, puntuación y zona. 
-
-Cuando ya tomamos una decisión, podremos presionar el botón de "Asistiré" para poder hacer una estimación de la concurrencia en determinado día y horario. La misma estará separada en hombres y mujeres, para que el dato sea más significativo. 
-
-Aparte de buscar lugares que visitar, podremos puntuar locales que hemos visitado y agregar comentarios sobre ellos. 
-
-Todavía restan tomar algunas decisiones de negocio, como por ejemplo, si la cantidad de asistentes a un local, en un horario y día, será solo un número, o si será una lista detallada con datos de los usuarios que asistirán. La última opción nos da la posibilidad de que los usuarios consulten esa lista en busca de alguna persona específica. 
-
- 
-
- 
-
-El administrador, será quien agregue  o quite locales del sistema y realizara el manejo de los usuarios. 

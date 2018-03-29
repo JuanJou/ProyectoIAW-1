@@ -11,10 +11,10 @@
     <title>Locales nocturnos</title>
     <link href="prueba.css" rel="stylesheet">
   </head>
-  <body>
+  <body style="background-color: #FDEBD0">
    
     <div id="titulo">
-      <h1>Locales nocturnos en bahia</h1>
+      <h1 class="">Locales nocturnos en Bahía Blanca</h1>
     </div>
     
     <ul class="nav nav-tabs">
@@ -29,20 +29,21 @@
       </li>
     </ul>
     
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <form class="form-inline my-2 my-lg-0 espacio">
+      <input class="form-control mr-sm-2" type="search" placeholder="Local..." aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
     </form>
 
-    <h2>Mapa de Bahia Blanca</h2>
+    <h2 style="padding-left:120px">Mapa de Bahía Blanca</h2>
 
-    <div id="googleMap" style="width:50%;height:400px;"></div>
+    <div id="googleMap" class="mapa"></div>
 
     <script>
       function myMap() {
       var mapProp= {
           center:new google.maps.LatLng(-38.7167,-62.2833),
           zoom:15,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
       }

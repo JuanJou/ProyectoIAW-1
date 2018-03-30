@@ -10,6 +10,6 @@ function initMap() {
 }
 
 
-function onclick(event){
+function clickear(event){
 	document.getElementById("Nombre").innerHTML="Bronx";
 }

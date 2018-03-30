@@ -17,3 +17,27 @@ h1 {
 	height:400px;
 	padding:5px
 }
+
+.Info{
+	position: absolute;
+	top:250px;
+	left:800px;
+	padding: 15px;
+}
+.Info h1{
+	padding: 7px;
+}
+
+.Info h2{
+	padding: 7px;
+	font-style: italic;
+}
+.Info h3{
+	padding: 7px;	
+}
+
+.Info h4{
+	padding: 7px;
+}
+
+.Info select{}

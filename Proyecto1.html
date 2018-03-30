@@ -10,13 +10,19 @@
 
     <title>Locales nocturnos</title>
     <link href="prueba.css" rel="stylesheet">
+
+    <script async type="text/javascript" src="./ScriptLogica.js"></script>
+
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfErfn3Hop9TIhHgcFawgNeQhrli9-0Ac&callback=myMap"></script>
   </head>
-  <body style="background-color: #FDEBD0">
+  <body style="background-color: #FDEBD0" onload="cargaDeLocales()">
    
     <div id="titulo">
       <h1 class="">Locales nocturnos en Bahía Blanca</h1>
     </div>
     
+
+    <!-- Pestanas Inicio, Puntuar y Ayuda -->
     <ul class="nav nav-tabs">
       <li class="nav-item">
         <a class="nav-link active" href="#">Inicio</a>
@@ -29,6 +35,7 @@
       </li>
     </ul>
     
+    <!-- Input para buscar locales -->
     <form class="form-inline my-2 my-lg-0 espacio">
       <input class="form-control mr-sm-2" type="search" placeholder="Local..." aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
@@ -38,18 +45,27 @@
 
     <div id="googleMap" class="mapa"></div>
 
-    <script>
-      function myMap() {
-      var mapProp= {
-          center:new google.maps.LatLng(-38.7167,-62.2833),
-          zoom:15,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-      var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-      }
-    </script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfErfn3Hop9TIhHgcFawgNeQhrli9-0Ac&callback=myMap"></script>
+    <!-- Panel con informacion del local seleccionado -->
+    <div id="infoLocal" class="Info">
+      <h1 id="NombreLocal">Nombre</h1>
+      <h2 id="Tipo">Tipo</h2>
+      <h3 id="Direccion">Direccion</h3>
+      <h3 id="Telefono">Telefono</h3>
+      <select>
+        <option value="Lunes">Lunes</option>
+        <option value="Martes">Martes</option>
+        <option value="Miercoles">Miercoles</option>
+        <option value="Jueves">Jueves</option>
+        <option value="Viernes">Viernes</option>
+        <option value="Sabado">Sabado</option>
+        <option value="Domingo">Domingo</option>
+      </select>
+      <h4 id="HoraOpen">Hora de apertura:</h4>
+      <h4 id="HoraClose">Hora de cierre:</h4>
+    </div>
+
+    
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

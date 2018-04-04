@@ -1,4 +1,4 @@
-h1 {
+.Titulo {
 	color: black;
 	text-align: center; 
 	font-style: normal;
@@ -9,20 +9,37 @@ h1 {
 
 .espacio{
 	padding-top: 20px;
-	padding-left:5px
+	padding-left:5px;
 }
 
 .mapa{
-	width:50%;
-	height:400px;
-	padding:5px
+	width:90%;
+	height:350px;
+	padding:5px;
+	position: relative;
+	top:20px;
+	left:30px;
+}
+
+.PanelMapa{
+	padding-top: 7px;
+	background-color: #F6E3CE;
+	width: 50%;
+	height: 470px;
 }
 
 .Info{
 	position: absolute;
-	top:250px;
-	left:800px;
+	top:230px;
+	left:650px;
 	padding: 15px;
+	border-top-style: solid;
+	border-left-style: solid;
+	border-right-style: ridge;
+	border-bottom-style: ridge; 
+	border-width: 3px;
+	width:45%;
+	height: 400px
 }
 .Info h1{
 	padding: 7px;
@@ -41,3 +58,8 @@ h1 {
 }
 
 .Info select{}
+
+.busqueda{
+	position: relative;
+	left:500px;
+}

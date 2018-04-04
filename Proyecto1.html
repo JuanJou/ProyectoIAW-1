@@ -18,7 +18,7 @@
   <body style="background-color: #FDEBD0" onload="cargaDeLocales()">
    
     <div id="titulo">
-      <h1 class="">Locales nocturnos en Bahía Blanca</h1>
+      <h1 class="Titulo">Locales nocturnos en Bahía Blanca</h1>
     </div>
     
 
@@ -37,14 +37,15 @@
     
     <!-- Input para buscar locales -->
     <form class="form-inline my-2 my-lg-0 espacio">
-      <input class="form-control mr-sm-2" type="search" placeholder="Local..." aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+        <input class="form-control mr-sm-2 busqueda" type="search" placeholder="Local..." aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0 busqueda" type="submit">Buscar</button>
     </form>
 
-    <h2 style="padding-left:120px">Mapa de Bahía Blanca</h2>
 
-    <div id="googleMap" class="mapa"></div>
-
+    <div id="PanelMapa" class="PanelMapa">
+      <h2 style="padding-left:120px">Mapa de Bahía Blanca</h2>
+      <div id="googleMap" class="mapa"></div>
+    </div>
 
     <!-- Panel con informacion del local seleccionado -->
     <div id="infoLocal" class="Info">

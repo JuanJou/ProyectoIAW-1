@@ -10,7 +10,7 @@ function myMap() {
 }
 
 function cargaDeLocales(){
-	var datosObjetos=localStorage.getItem(ModeloDeDatos);
+	var datosObjetos=localStorage.getItem("ModeloDeDatos.json");
 
 	var objeto=JSON.parse(datosObjetos);
 

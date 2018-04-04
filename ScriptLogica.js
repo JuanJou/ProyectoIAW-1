@@ -204,17 +204,24 @@ function myMap() {
       };
       var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
-      var marker=new google.maps.Marker({
-      	position:{lat:-38.704071738026016,lng:-62.26179024684609},
-      	title:"Bronx",
-      	map:map
-      });
 }
 
 function cargaDeLocales(){
-	var datosObjetos=localStorage.getItem("ModeloDeDatos.json");
+  console.log("Perro");
+	$.getJSON("http://localhost/ModeloDeDatos.json",function(data){
+    var local=null;
+    for (var i = 0; i < 3; i++) {
+      local=data[i];
+      var marker=new google.maps.Marker({
+        position:local.ubicacion,
+        title:local.Nombre_del_local,
+        icon:makeIcon(local.Tipo),
+        map:map
+      });
+    }
+  });
+}
 
-	var objeto=JSON.parse(datosObjetos);
-
-	document.getElementById("NombreLocal").innerHTML=objeto[0].Nombre_del_local;
+function makeIcon(tipo){
+  return 'http://localhost/Imagenes/'+tipo+'.png';
 }

@@ -4,8 +4,8 @@
 	"ID":1,
 	"Ubicacion":
 	{
-		"latitud":-38.7040081,
-		"longitud":-62.2705528
+		"lat":-38.7040081,
+		"lng":-62.2705528
 	},
 	"Tipo":"Cerveceria",
 	"Horario_De_Apertura":[{

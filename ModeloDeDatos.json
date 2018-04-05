@@ -1,3 +1,4 @@
+
 {
   "Locales":[
 			{
@@ -41,7 +42,7 @@
 				"Telefono":4500000,
 				"Capacidad":200,
 				"Clasificacion":4.3
-			}
+			},
 
 			{
 				"Nombre_del_local":"Club Universitario",
@@ -64,7 +65,7 @@
 				"Telefono":4500000,
 				"Capacidad":1200,
 				"Clasificacion":5.0
-			}
+			},
 
 			{
 				"Nombre_del_local":"Chocolate Disco",
@@ -87,7 +88,7 @@
 				"Telefono":4500000,
 				"Capacidad":750,
 				"Clasificacion":4.0
-			}
+			},
 
 			{
 				"Nombre_del_local":"Wir Konnen",

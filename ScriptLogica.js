@@ -194,6 +194,8 @@ var styles=[
   }
 ];
 
+var map;
+
 function myMap() {
       var mapProp= {
           center:new google.maps.LatLng(-38.7167,-62.2833),
@@ -202,20 +204,28 @@ function myMap() {
           mapTypeControl:false,
           mapTypeId: google.maps.MapTypeId.ROADMAP
       };
-      var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+      map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
 }
 
 function cargaDeLocales(){
   console.log("Perro");
-	$.getJSON("http://localhost/ModeloDeDatos.json",function(data){
+
+  var marker=new google.maps.Marker({
+        position:{"lat":-38.7040081,"lng":-62.2705528},
+        title:"Bronx",
+        map:map
+      });
+
+	$.getJSON('https://uns-iaw-2018-com09.github.io/ProyectoIAW/ModeloDeDatos.json',function(data){
+    console.log(data.Locales.length);
+    var locales=data.Locales;
     var local=null;
-    for (var i = 0; i < 3; i++) {
-      local=data[i];
+    for (var i = 0; i < locales.length; i++) {
+      local=locales[i];
       var marker=new google.maps.Marker({
         position:local.ubicacion,
         title:local.Nombre_del_local,
-        icon:makeIcon(local.Tipo),
         map:map
       });
     }

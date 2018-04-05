@@ -1,169 +1,136 @@
-[
 {
-	"Nombre_del_local":"Bronx",
-	"ID":1,
-	"Ubicacion":
-	{
-		"lat":-38.7040081,
-		"lng":-62.2705528
-	},
-	"Tipo":"Cerveceria",
-	"Horario_De_Apertura":[{
-		"Dia":"Domingo",
-		"Hora_Apertura":"18:30",
-		"Hora_Cierre":"04:00"
-	},{
-		"Dia":"Lunes",
-		"Hora_Apertura":"18:30",
-		"Hora_Cierre":"04:00"
-	},{
-		"Dia":"Martes",
-		"Hora_Apertura":"18:30",
-		"Hora_Cierre":"04:00"
-	},{
-		"Dia":"Miercoles",
-		"Hora_Apertura":"18:30",
-		"Hora_Cierre":"04:00"
-	},{
-		"Dia":"Jueves",
-		"Hora_Apertura":"18:30",
-		"Hora_Cierre":"04:00"
-	},{
-		"Dia":"Viernes",
-		"Hora_Apertura":"18:30",
-		"Hora_Cierre":"04:00"
-	},{
-		"Dia":"Sabado",
-		"Hora_Apertura":"18:30",
-		"Hora_Cierre":"04:00"
-	}],
-	"Telefono":4500000,
-	"Capacidad":200,
-	"Clasificacion":4.3
-}
+  "Locales":[
+			{
+				"Nombre_del_local":"Bronx",
+				"ID":1,
+				"Ubicacion":
+				{
+					"lat":-38.7040081,
+					"lng":-62.2705528
+				},
+				"Tipo":"Cerveceria",
+				"Horario_De_Apertura":[{
+					"Dia":"Domingo",
+					"Hora_Apertura":"18:30",
+					"Hora_Cierre":"04:00"
+				},{
+					"Dia":"Lunes",
+					"Hora_Apertura":"18:30",
+					"Hora_Cierre":"04:00"
+				},{
+					"Dia":"Martes",
+					"Hora_Apertura":"18:30",
+					"Hora_Cierre":"04:00"
+				},{
+					"Dia":"Miercoles",
+					"Hora_Apertura":"18:30",
+					"Hora_Cierre":"04:00"
+				},{
+					"Dia":"Jueves",
+					"Hora_Apertura":"18:30",
+					"Hora_Cierre":"04:00"
+				},{
+					"Dia":"Viernes",
+					"Hora_Apertura":"18:30",
+					"Hora_Cierre":"04:00"
+				},{
+					"Dia":"Sabado",
+					"Hora_Apertura":"18:30",
+					"Hora_Cierre":"04:00"
+				}],
+				"Telefono":4500000,
+				"Capacidad":200,
+				"Clasificacion":4.3
+			}
 
-{
-	"Nombre_del_local":"Club Universitario",
-	"ID":2,
-	"Ubicacion":
-	{
-		"latitud":3000,
-		"longitud":60
-	},
-	"Tipo":"Boliche",
-	"Horario":[{
-		"Dia":"Viernes",
-		"Hora_Apertura":"01:30",
-		"Hora_Cierre":"05:30"
-	},{
-		"Dia":"Sabado",
-		"Hora_Apertura":"01:30",
-		"Hora_Cierre":"05:30"
-	}],
-	"Telefono":4500000,
-	"Capacidad":1200,
-	"Clasificacion":5.0
-}
+			{
+				"Nombre_del_local":"Club Universitario",
+				"ID":2,
+				"Ubicacion":
+				{
+					"latitud":3000,
+					"longitud":60
+				},
+				"Tipo":"Boliche",
+				"Horario":[{
+					"Dia":"Viernes",
+					"Hora_Apertura":"01:30",
+					"Hora_Cierre":"05:30"
+				},{
+					"Dia":"Sabado",
+					"Hora_Apertura":"01:30",
+					"Hora_Cierre":"05:30"
+				}],
+				"Telefono":4500000,
+				"Capacidad":1200,
+				"Clasificacion":5.0
+			}
 
-{
-	"Nombre_del_local":"Chocolate Disco",
-	"ID":3,
-	"Ubicacion":
-	{
-		"latitud":80000,
-		"longitud":150
-	},
-	"Tipo":"Boliche",
-	"Horario":[{
-		"Dia":"Viernes",
-		"Hora_Apertura":"01:30",
-		"Hora_Cierre":"05:30"
-	},{
-		"Dia":"Sabado",
-		"Hora_Apertura":"01:30",
-		"Hora_Cierre":"05:30"
-	}],
-	"Telefono":4500000,
-	"Capacidad":750,
-	"Clasificacion":4.0
-}
+			{
+				"Nombre_del_local":"Chocolate Disco",
+				"ID":3,
+				"Ubicacion":
+				{
+					"latitud":80000,
+					"longitud":150
+				},
+				"Tipo":"Boliche",
+				"Horario":[{
+					"Dia":"Viernes",
+					"Hora_Apertura":"01:30",
+					"Hora_Cierre":"05:30"
+				},{
+					"Dia":"Sabado",
+					"Hora_Apertura":"01:30",
+					"Hora_Cierre":"05:30"
+				}],
+				"Telefono":4500000,
+				"Capacidad":750,
+				"Clasificacion":4.0
+			}
 
-{
-	"Nombre_del_local":"Wir Konnen",
-	"ID":4,
-	"Ubicacion":
-	{
-		"latitud":90000,
-		"longitud":500
-	},
-	"Tipo":"Cerveceria",
-	"Horario_De_Apertura":[{
-		"Dia":"Domingo",
-		"Hora_Apertura":"18:30",
-		"Hora_Cierre":"04:00"
-	},{
-		"Dia":"Lunes",
-		"Hora_Apertura":"18:30",
-		"Hora_Cierre":"04:00"
-	},{
-		"Dia":"Martes",
-		"Hora_Apertura":"18:30",
-		"Hora_Cierre":"04:00"
-	},{
-		"Dia":"Miercoles",
-		"Hora_Apertura":"18:30",
-		"Hora_Cierre":"04:00"
-	},{
-		"Dia":"Jueves",
-		"Hora_Apertura":"18:30",
-		"Hora_Cierre":"04:00"
-	},{
-		"Dia":"Viernes",
-		"Hora_Apertura":"18:30",
-		"Hora_Cierre":"04:00"
-	},{
-		"Dia":"Sabado",
-		"Hora_Apertura":"18:30",
-		"Hora_Cierre":"04:00"
-	}],
-	"Telefono":4500000,
-	"Capacidad":200,
-	"Clasificacion":4.6
-}
+			{
+				"Nombre_del_local":"Wir Konnen",
+				"ID":4,
+				"Ubicacion":
+				{
+					"latitud":90000,
+					"longitud":500
+				},
+				"Tipo":"Cerveceria",
+				"Horario_De_Apertura":[{
+					"Dia":"Domingo",
+					"Hora_Apertura":"18:30",
+					"Hora_Cierre":"04:00"
+				},{
+					"Dia":"Lunes",
+					"Hora_Apertura":"18:30",
+					"Hora_Cierre":"04:00"
+				},{
+					"Dia":"Martes",
+					"Hora_Apertura":"18:30",
+					"Hora_Cierre":"04:00"
+				},{
+					"Dia":"Miercoles",
+					"Hora_Apertura":"18:30",
+					"Hora_Cierre":"04:00"
+				},{
+					"Dia":"Jueves",
+					"Hora_Apertura":"18:30",
+					"Hora_Cierre":"04:00"
+				},{
+					"Dia":"Viernes",
+					"Hora_Apertura":"18:30",
+					"Hora_Cierre":"04:00"
+				},{
+					"Dia":"Sabado",
+					"Hora_Apertura":"18:30",
+					"Hora_Cierre":"04:00"
+				}],
+				"Telefono":4500000,
+				"Capacidad":200,
+				"Clasificacion":4.6
+			}
+  ]
 
-
-{
-	"ID":1,
-	"Nombre":"Juan Francisco",
-	"Contraseña":"***********",
-	"Apellido":"Jouglard",
-	"Genero":"Masculino",
-	"Edad":20
-}
-
-{
-	"ID":2,
-	"Nombre":"Juan",
-	"Contraseña":"***********",
-	"Apellido":"Dimatz",
-	"Genero":"Masculino",
-	"Edad":21
-}
-
-{
-	"Texto":"Muy buena atencion",
-	"Clasificacion":4.0,
-	"Usuario":1,
-	"Local":3
-}
-
-{
-	"Texto":"Mala experiencia, tardaron 40 minutos en atendernos ",
-	"Clasificacion":2.0,
-	"Usuario":2,
-	"Local":4
-}
-
-]
-
- 
+} 

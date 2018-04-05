@@ -49,8 +49,10 @@
 				"ID":2,
 				"Ubicacion":
 				{
-					"latitud":3000,
-					"longitud":60
+					//"lat":-38.702361,
+					//"lng":-62.268852
+					"lat":-38.7040081,
+					"lng":-62.2705528
 				},
 				"Tipo":"Boliche",
 				"Horario":[{
@@ -72,8 +74,8 @@
 				"ID":3,
 				"Ubicacion":
 				{
-					"latitud":80000,
-					"longitud":150
+					"lat":-38.698615,
+					"lng":-62.265031
 				},
 				"Tipo":"Boliche",
 				"Horario":[{
@@ -95,8 +97,8 @@
 				"ID":4,
 				"Ubicacion":
 				{
-					"latitud":90000,
-					"longitud":500
+					"lat":-38.707461,
+					"lng":-62.262544
 				},
 				"Tipo":"Cerveceria",
 				"Horario_De_Apertura":[{

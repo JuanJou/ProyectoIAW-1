@@ -211,21 +211,21 @@ function myMap() {
 function cargaDeLocales(){
   console.log("Perro");
 
-  var marker=new google.maps.Marker({
+  /*var marker=new google.maps.Marker({
         position:{"lat":-38.7040081,"lng":-62.2705528},
         title:"Bronx",
         map:map
-      });
+      });*/
 
 	$.getJSON('https://uns-iaw-2018-com09.github.io/ProyectoIAW/ModeloDeDatos.json',function(data){
     console.log(data.Locales.length);
     var locales=data.Locales;
-    var local=null;
     for (var i = 0; i < locales.length; i++) {
-      local=locales[i];
+      console.log(locales[i]["Nombre_del_local"]);
+      console.log(locales[i]["Ubicacion"]);
       var marker=new google.maps.Marker({
-        position:local.ubicacion,
-        title:local.Nombre_del_local,
+        position:locales[i]["Ubicacion"],
+        title:locales[i]["Nombre_del_local"],
         map:map
       });
     }

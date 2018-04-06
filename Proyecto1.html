@@ -13,15 +13,15 @@
     <link href="prueba.css" rel="stylesheet">
     <link href="estilosNavBar.css" rel="stylesheet">
 
- 	
-
-    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfErfn3Hop9TIhHgcFawgNeQhrli9-0Ac&callback=myMap"></script>
 
     <script async type="text/javascript" src="./ScriptLogica.js"></script>
 
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfErfn3Hop9TIhHgcFawgNeQhrli9-0Ac&callback=myMap"></script>
+
+
     <script type="text/javascript" src="./jquery-3.3.1.min.js"></script>
   </head>
-  <body style="background-color: #FDEBD0" onload="cargaDeLocales()">
+  <body style="background-image: url(https://uns-iaw-2018-com09.github.io/ProyectoIAW/Imagenes/Fondo-pagina.jpg") onload="cargaDeLocales()">
    
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">GiraBahiense</a>
@@ -55,31 +55,51 @@
     
     <!-- Input para buscar locales -->
     <div class="espacio">
-        <input class="form-control busqueda" type="search" placeholder="Local..." aria-label="Search">
-        <button class="btn btn-outline-success botonBuscar" type="submit">Buscar</button>
+      <div style="margin: auto;width: 500px">
+            <div class="input-group">
+              <input type="text" class="form-control busqueda" aria-label="Text input with dropdown button">
+              <div class="input-group-btn">
+                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Filtrar
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="#">Cerveceria</a>
+                  <a class="dropdown-item" href="#">Boliche</a>
+                  <a class="dropdown-item" href="#">Restaurant</a>
+                </div>
+              </div>
+            <button class="btn btn-outline-success botonBuscar" type="submit">Buscar</button>
+            </div>
+        </div>
+      </div>
     </div>
 
 
-    <div id="PanelMapa" class="PanelMapa">
-      <h2 style="padding-left:120px">Mapa de Bahía Blanca</h2>
+    <div id="PanelMapa" class="PanelMapa rounded">
+      <h2>Mapa de Bahía Blanca</h2>
       <div id="googleMap" class="mapa"></div>
     </div>
 
     <!-- Panel con informacion del local seleccionado -->
-    <div id="infoLocal" class="Info">
+    <div id="infoLocal" class="Info rounded">
       <h1 id="NombreLocal">Nombre</h1>
       <h2 id="Tipo">Tipo</h2>
       <h3 id="Direccion">Direccion</h3>
       <h3 id="Telefono">Telefono</h3>
-      <select>
-        <option value="Lunes">Lunes</option>
-        <option value="Martes">Martes</option>
-        <option value="Miercoles">Miercoles</option>
-        <option value="Jueves">Jueves</option>
-        <option value="Viernes">Viernes</option>
-        <option value="Sabado">Sabado</option>
-        <option value="Domingo">Domingo</option>
-      </select>
+      <div class="btn-group">
+        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Elegir dia...
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Domingo</a>
+          <a class="dropdown-item" href="#">Lunes</a>
+          <a class="dropdown-item" href="#">Martes</a>
+          <a class="dropdown-item" href="#">Miercoles</a>
+          <a class="dropdown-item" href="#">Jueves</a>
+          <a class="dropdown-item" href="#">Viernes</a>
+          <a class="dropdown-item" href="#">Sabado</a>
+        </div>
+      </div>
       <h4 id="HoraOpen" class="font-weight-light">Hora de apertura:</h4>
       <h4 id="HoraClose" class="font-weight-light">Hora de cierre:</h4>
     </div>

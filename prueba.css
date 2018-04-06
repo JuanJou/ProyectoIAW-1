@@ -8,25 +8,23 @@
 }
 
 .PanelMapa{
+	float:left;
 	padding-top: 7px;
+	margin-left: 5%;
 	background-color: #F6E3CE;
-	width: 50%;
+	width: 40%;
 	height: 470px;
-	top:252px;
+	text-align: center;
 }
 
 .Info{
-	position: absolute;
-	top:252px;
-	left:650px;
-	padding: 15px;
-	border-top-style: solid;
-	border-left-style: solid;
-	border-right-style: ridge;
-	border-bottom-style: ridge; 
-	border-width: 3px;
-	width:45%;
-	height: 470px
+	overflow: hidden;
+	float: right;
+	margin-right:5%;
+	width:40%;
+	background-color: #F6E3CE;
+	height: 470px;
+	text-align: center;
 }
 .Info h1{
 	padding: 7px;

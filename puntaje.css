@@ -1,13 +1,7 @@
 .Info{
-	position: absolute;
+	float:left;
 	padding: 15px;
-	border-top-style: solid;
-	border-left-style: solid;
-	border-right-style: ridge;
-	border-bottom-style: ridge; 
-	border-width: 3px;
-	width:45%;
-	height: 470px
+	width:50%;
 }
 .Info h1{
 	padding: 7px;
@@ -24,4 +18,9 @@
 .Info h4{
 	padding: 7px;
 	font-style: italic;
+}
+
+.fotos{
+	width: 50%;
+	float: right;
 }

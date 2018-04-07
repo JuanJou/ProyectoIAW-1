@@ -23,7 +23,6 @@ function myMap() {
 }
 
 function cargaDeLocales(){
-<<<<<<< Updated upstream
 	$.getJSON('https://uns-iaw-2018-com09.github.io/ProyectoIAW/ModeloDeDatos.json',function(data){
     console.log("Hola");
 

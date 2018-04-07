@@ -2,6 +2,7 @@
 	float:left;
 	padding: 15px;
 	width:50%;
+	height:345px;
 }
 .Info h1{
 	padding: 7px;
@@ -21,6 +22,15 @@
 }
 
 .fotos{
+	overflow: hidden;
 	width: 50%;
 	float: right;
+	height:345px;
+}
+
+.comentario{
+	width: 50%;
+	margin:auto;
+	height: 100px;
+	overflow: hidden;
 }

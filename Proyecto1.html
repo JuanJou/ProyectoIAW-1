@@ -7,10 +7,11 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Raleway:400i" rel="stylesheet">
 
     <title>Locales nocturnos</title>
 
-    <link href="prueba.css" rel="stylesheet">
+    <link id="hojaEstilo" href="Estilo1.css" rel="stylesheet">
     <link href="estilosNavBar.css" rel="stylesheet">
 
 
@@ -20,8 +21,9 @@
 
 
     <script type="text/javascript" src="./jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src=""></script>
   </head>
-  <body style="background-image: url(https://uns-iaw-2018-com09.github.io/ProyectoIAW/Imagenes/Fondo-pagina.jpg") onload="cargaDeLocales()">
+  <body onload="cargaDeLocales()">
    
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">GiraBahiense</a>
@@ -45,7 +47,7 @@
         </ul>
       </div>
       <div class="onoffswitch">
-        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked onclick="cambiarEstilo()">
         <label class="onoffswitch-label" for="myonoffswitch">
             <span class="onoffswitch-inner"></span>
             <span class="onoffswitch-switch"></span>
@@ -92,7 +94,7 @@
         </button>
         <div class="dropdown-menu">
           <a class="dropdown-item" href="#">Domingo</a>
-          <a class="dropdown-item" href="#">Lunes</a>
+          <a class="dropdown-item active" href="#">Lunes</a>
           <a class="dropdown-item" href="#">Martes</a>
           <a class="dropdown-item" href="#">Miercoles</a>
           <a class="dropdown-item" href="#">Jueves</a>

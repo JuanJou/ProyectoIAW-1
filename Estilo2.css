@@ -1,0 +1,21 @@
+
+
+body{
+	background-color: #003300;
+	color:#FFFFFF;
+}
+
+.Info{
+	text-align: center;
+}
+.mapa{
+	width:90%;
+	height:350px;
+	padding:5px;
+}
+
+.PanelMapa{
+	width: 40%;
+	height: 470px;
+	text-align: center;
+}

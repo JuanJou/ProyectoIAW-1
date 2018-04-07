@@ -9,7 +9,7 @@
 					"lng":-62.26180136203766
 				},
 				"Tipo":"Cerveceria",
-				"Horario_De_Apertura":[{
+				"Horario":[{
 					"Dia":"Domingo",
 					"Hora_Apertura":"18:30",
 					"Hora_Cierre":"04:00"
@@ -98,7 +98,7 @@
 					"lng":-62.26252555847168
 				},
 				"Tipo":"Cerveceria",
-				"Horario_De_Apertura":[{
+				"Horario":[{
 					"Dia":"Domingo",
 					"Hora_Apertura":"18:30",
 					"Hora_Cierre":"04:00"

@@ -24,6 +24,7 @@
 .fotos{
 	overflow: hidden;
 	width: 50%;
+	height: 300px;
 	float: right;
 	height:345px;
 }

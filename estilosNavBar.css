@@ -29,6 +29,10 @@ body{
 	margin: 5px
 }
 
+div{
+	border:dotted;
+}
+
 
 .Titulo {
 	color: black;

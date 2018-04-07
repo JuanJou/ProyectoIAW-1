@@ -23,8 +23,21 @@ function myMap() {
 }
 
 function cargaDeLocales(){
+<<<<<<< Updated upstream
 	$.getJSON('https://uns-iaw-2018-com09.github.io/ProyectoIAW/ModeloDeDatos.json',function(data){
     console.log("Hola");
+=======
+  console.log("Perro");
+
+  /*var marker=new google.maps.Marker({
+        position:{"lat":-38.7040081,"lng":-62.2705528},
+        title:"Bronx",
+        map:map
+      });*/
+
+	$.getJSON('https://raw.githubusercontent.com/UNS-IAW-2018-Com09/ProyectoIAW/master/ModeloDeDatos.json',function(data){
+    console.log(data.Locales.length);
+>>>>>>> Stashed changes
     var locales=data.Locales;
     for (var i = 0; i < locales.length; i++) {
       AlmacenamientoLocales.set(locales[i]["Nombre_del_local"],locales[i]);

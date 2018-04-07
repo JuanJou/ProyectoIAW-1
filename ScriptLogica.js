@@ -57,6 +57,7 @@ function cargaDeLocales(){
             })(marker, data);
     }
   });
+})
 }
 
 function makeIcon(tipo){
@@ -84,5 +85,12 @@ function smoothZoom (map, max, cnt) {
 
 function cambiarEstilo(){
  $("#hojaEstilo").attr("href","Estilo"+estiloSiguiente+".css");
+ localStorage.setItem("pedido", "Estilo"+estiloSiguiente+".css");
  estiloSiguiente=Math.floor(1/estiloSiguiente+1);
+ //localStorage.setItem("pedido", "Estilo"+estiloSiguiente+".css");
+}
+
+function recuperarPedido() {
+  var es = localStorage.getItem("pedido");
+  $("#hojaEstilo").attr("href",es);
 }

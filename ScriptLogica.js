@@ -4,7 +4,6 @@ var map;
 
 var AlmacenamientoLocales=new Map([]);
 
-var estiloSiguiente=2;
 
 
 function myMap() {
@@ -22,17 +21,61 @@ function myMap() {
     });
 }
 
+function inicializar(){
+  setearEstilo();
+  cargaDeLocales();
+}
+
+
+function inicializarPuntaje(){
+  setearEstiloPuntaje();
+  var seleccionado=consultarSeleccionado();
+  cargarImagenes(seleccionado);
+}
+
+function cargarImagenes(local){
+  $("#imagen1").attr("src",'https://uns-iaw-2018-com09.github.io/ProyectoIAW/Imagenes/'+local+'1.jpg');
+  $("#imagen2").attr("src",'https://uns-iaw-2018-com09.github.io/ProyectoIAW/Imagenes/'+local+'2.jpg');
+  $("#imagen3").attr("src",'https://uns-iaw-2018-com09.github.io/ProyectoIAW/Imagenes/'+local+'3.jpg');
+}
+
+function consultarSeleccionado(){
+  var local=localStorage.getItem("LocalSeleccionado");
+
+  // if (local!=null){
+  //   console.log(objetoLocal);
+  //   $("#NombreLocal").html(objetoLocal.Nombre_del_local);
+  //   $("#Tipo").html(objetoLocal.Tipo);
+  //   $("#Telefono").html(objetoLocal.Telefono);
+  // }
+  return local;
+}
+
+
+function setearEstiloPuntaje(){
+  var estiloActual=localStorage.getItem("Estilo");
+  console.log(estiloActual);
+  if (estiloActual==null){
+    $("#hojaEstilo").attr("href","puntaje1.css");
+  }
+  else{
+    $("#hojaEstilo").attr("href","puntaje"+estiloActual+".css");
+  }
+}
+
+function setearEstilo(){
+  var estiloActual=window.localStorage.getItem("Estilo");
+  console.log(estiloActual);
+  if (estiloActual==null){
+    $("#hojaEstilo").attr("href","Estilo1.css");
+  }
+  else{
+    $("#hojaEstilo").attr("href","Estilo"+estiloActual+".css");
+  }
+}
+
+
 function cargaDeLocales(){
-	$.getJSON('https://uns-iaw-2018-com09.github.io/ProyectoIAW/ModeloDeDatos.json',function(data){
-    console.log("Hola");
-
-  console.log("Perro");
-
-  /*var marker=new google.maps.Marker({
-        position:{"lat":-38.7040081,"lng":-62.2705528},
-        title:"Bronx",
-        map:map
-      });*/
 
 	$.getJSON('https://raw.githubusercontent.com/UNS-IAW-2018-Com09/ProyectoIAW/master/ModeloDeDatos.json',function(data){
     console.log(data.Locales.length);
@@ -52,13 +95,14 @@ function cargaDeLocales(){
                     $("#Tipo").html(localClickeado.Tipo);
                     $("#Telefono").html(localClickeado.Telefono);
                     $("#HoraOpen").html("Hora de apertura:");
-                    $("#HoraClose").html("Hora de apertura:");
+                    $("#HoraClose").html("Hora de cierre:");
                     $("#facebook").attr("href",localClickeado.Facebook);
+                    window.localStorage.setItem("LocalSeleccionado",localClickeado.Nombre_del_local);
+                    console.log(localClickeado);
                 });
             })(marker, data);
     }
   });
-})
 }
 
 function makeIcon(tipo){
@@ -85,10 +129,15 @@ function smoothZoom (map, max, cnt) {
 
 
 function cambiarEstilo(){
+ var estiloActual=localStorage.getItem("Estilo");
+ var estiloSiguiente=Math.floor(1/estiloActual+1);
+ console.log(estiloSiguiente);
  $("#hojaEstilo").attr("href","Estilo"+estiloSiguiente+".css");
- localStorage.setItem("pedido", "Estilo"+estiloSiguiente+".css");
- estiloSiguiente=Math.floor(1/estiloSiguiente+1);
+ localStorage.setItem("Estilo", estiloSiguiente);
  //localStorage.setItem("pedido", "Estilo"+estiloSiguiente+".css");
+ $.getJSON('https://uns-iaw-2018-com09.github.io/ProyectoIAW/EstiloMapa2.json',function(data){
+    //map.setOptions(styles:data.Styles);
+ });
 }
 
 function recuperarPedido() {
@@ -112,4 +161,26 @@ function mostrarHorario(event){
     $("#HoraOpen").html("Hora de apertura: Cerrado");
     $("#HoraClose").html("Hora de apertura: Cerrado");
   }
+}
+
+
+function guardarComentario(){
+  var textoComentario=$("#comment").val();
+  var valoracion=0;
+  for (var i = 1; i<6; i++) {
+    if ($("#radio"+i).is(':checked')){
+      valoracion=6-i;
+      break;
+    }
+  }
+  console.log($("#NombreLocal").html());
+
+  var local=$("#NombreLocal").html();
+  var local_comment=local+"-comment";
+  var local_value=local+"-value";
+
+  localStorage.setItem(local_comment,textoComentario);
+  localStorage.setItem(local_value,valoracion);
+  console.log(localStorage.getItem(local_comment));
+  console.log(localStorage.getItem(local_value));
 }

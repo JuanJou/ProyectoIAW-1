@@ -32,6 +32,15 @@
 	margin-right: 25px; 
 }
 
+.images {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    line-height: 1;
+    margin:auto;
+    width: 100%;
+}
+
 .comentario{
 	width: 50%;
 	margin:auto;

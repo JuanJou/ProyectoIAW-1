@@ -60,6 +60,10 @@ function setearEstiloPuntaje(){
   }
   else{
     $("#hojaEstilo").attr("href","puntaje"+estiloActual+".css");
+    if (estiloActual==1)
+      $("#myonoffswitch").prop("checked",true);
+    else
+      $("#myonoffswitch").prop("checked",false);
   }
 }
 
@@ -71,6 +75,10 @@ function setearEstilo(){
   }
   else{
     $("#hojaEstilo").attr("href","Estilo"+estiloActual+".css");
+    if (estiloActual==1)
+      $("#myonoffswitch").prop("checked",true);
+    else
+      $("#myonoffswitch").prop("checked",false);
   }
 }
 

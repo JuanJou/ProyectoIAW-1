@@ -42,7 +42,7 @@ function cargaDeLocales(){
       var marker=new google.maps.Marker({
         position:locales[i]["Ubicacion"],
         title:locales[i]["Nombre_del_local"],
-        icon:'https://uns-iaw-2018-com09.github.io/ProyectoIAW/Imagenes/Boliche2.png',
+        icon:'https://uns-iaw-2018-com09.github.io/ProyectoIAW/Imagenes/'+locales[i]["Tipo"]+'.png',
         map:map
       });
       (function (marker, data) {
@@ -50,9 +50,10 @@ function cargaDeLocales(){
                     var localClickeado=AlmacenamientoLocales.get(marker.title);
                     $("#NombreLocal").html(localClickeado.Nombre_del_local);
                     $("#Tipo").html(localClickeado.Tipo);
-                    $("#HoraOpen").html("Hora de apertura: "+(localClickeado.Horario)[1].Hora_Apertura);
-                    $("#HoraClose").html("Hora de cierre: "+(localClickeado.Horario)[1].Hora_Cierre);
                     $("#Telefono").html(localClickeado.Telefono);
+                    $("#HoraOpen").html("Hora de apertura:");
+                    $("#HoraClose").html("Hora de apertura:");
+                    $("#facebook").attr("href",localClickeado.Facebook);
                 });
             })(marker, data);
     }
@@ -93,4 +94,22 @@ function cambiarEstilo(){
 function recuperarPedido() {
   var es = localStorage.getItem("pedido");
   $("#hojaEstilo").attr("href",es);
+}
+
+function mostrarHorario(event){
+  var diaSeleccionado=event.innerHTML;
+  $("#dropdown").html(event.innerHTML);
+  var localSel=$("#NombreLocal").html();
+  if (localSel!="Nombre"){
+    var objetoLocal=AlmacenamientoLocales.get(localSel);
+    for (var i = 0; i < objetoLocal.Horario.length; i++) {
+      if (objetoLocal.Horario[i].Dia==diaSeleccionado){
+         $("#HoraOpen").html("Hora de apertura: "+objetoLocal.Horario[i].Hora_Apertura);
+         $("#HoraClose").html("Hora de cierre: "+objetoLocal.Horario[i].Hora_Cierre);
+         return;
+      }
+    }
+    $("#HoraOpen").html("Hora de apertura: Cerrado");
+    $("#HoraClose").html("Hora de apertura: Cerrado");
+  }
 }

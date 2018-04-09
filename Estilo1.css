@@ -50,3 +50,11 @@ body{
 }
 
 .Info select{}
+
+.link{
+	color:blue;
+}
+
+.link:hover{
+	color:red;
+}

@@ -6,15 +6,48 @@ body{
 }
 
 .Info{
+	overflow: hidden;
+	float: right;
+	margin-right:5%;
+	width:40%;
+	background-color: #34495E;
+	height: 470px;
 	text-align: center;
 }
+
+.Info h1{
+	padding: 7px;
+}
+
+.Info h2{
+	padding: 7px;
+	font-style: italic;
+}
+.Info h3{
+	padding: 7px;	
+	font-family: 'Raleway',sans-serif;
+}
+
+.Info h4{
+	padding: 7px;
+	font-style: italic;
+	font-family: 'Raleway',sans-serif;
+}
+
 .mapa{
 	width:90%;
 	height:350px;
 	padding:5px;
+	position: relative;
+	top:20px;
+	left:30px;
 }
 
 .PanelMapa{
+	float:left;
+	padding-top: 7px;
+	margin-left: 5%;
+	background-color: #34495E;
 	width: 40%;
 	height: 470px;
 	text-align: center;

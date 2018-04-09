@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Raleway:400i" rel="stylesheet">
 
-    <title>Locales nocturnos</title>
+    <title>GiraBahiense</title>
 
     <link id="hojaEstilo" href="Estilo1.css" rel="stylesheet">
     <link href="estilosNavBar.css" rel="stylesheet">
@@ -38,13 +38,12 @@
           <li class="nav-item">
             <a class="nav-link" href="/Users/jougl/Desktop/IAWOrganizacion/ProyectoIAW/Puntaje.html">Puntaje</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Cam</a>
-          </li>
         </ul>
+        <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/Users/jougl/Desktop/IAWOrganizacion/ProyectoIAW/Puntaje.html">Ingresar</a>
+        </li>
+      </ul>
       </div>
       <div class="onoffswitch">
         <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked onclick="cambiarEstilo()">
@@ -89,21 +88,22 @@
       <h3 id="Direccion">Direccion</h3>
       <h3 id="Telefono">Telefono</h3>
       <div class="btn-group">
-        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button id="dropdown" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Elegir dia...
         </button>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Domingo</a>
-          <a class="dropdown-item active" href="#">Lunes</a>
-          <a class="dropdown-item" href="#">Martes</a>
-          <a class="dropdown-item" href="#">Miercoles</a>
-          <a class="dropdown-item" href="#">Jueves</a>
-          <a class="dropdown-item" href="#">Viernes</a>
-          <a class="dropdown-item" href="#">Sabado</a>
+          <a class="dropdown-item" href="#" onclick="mostrarHorario(this)">Domingo</a>
+          <a class="dropdown-item" href="#" onclick="mostrarHorario(this)">Lunes</a>
+          <a class="dropdown-item" href="#" onclick="mostrarHorario(this)">Martes</a>
+          <a class="dropdown-item" href="#" onclick="mostrarHorario(this)">Miercoles</a>
+          <a class="dropdown-item" href="#" onclick="mostrarHorario(this)">Jueves</a>
+          <a class="dropdown-item" href="#" onclick="mostrarHorario(this)">Viernes</a>
+          <a class="dropdown-item" href="#" onclick="mostrarHorario(this)">Sabado</a>
         </div>
       </div>
       <h4 id="HoraOpen" class="font-weight-light">Hora de apertura:</h4>
       <h4 id="HoraClose" class="font-weight-light">Hora de cierre:</h4>
+      <a id="facebook" class="link">Pagina de Facebook</a>
     </div>
 
     

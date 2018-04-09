@@ -40,7 +40,8 @@
 				}],
 				"Telefono":4500000,
 				"Capacidad":200,
-				"Clasificacion":4.3
+				"Clasificacion":4.3,
+				"Facebook":"https://www.facebook.com/bronxcerveceria/?ref=br_rs"
 			},
 
 			{
@@ -63,7 +64,8 @@
 				}],
 				"Telefono":4500000,
 				"Capacidad":1200,
-				"Clasificacion":5.0
+				"Clasificacion":5.0,
+				"Facebook":"https://www.facebook.com/lanochedelclub/"
 			},
 
 			{
@@ -86,7 +88,8 @@
 				}],
 				"Telefono":4500000,
 				"Capacidad":750,
-				"Clasificacion":4.0
+				"Clasificacion":4.0,
+				"Facebook":"https://www.facebook.com/lanochedelclub/"
 			},
 
 			{
@@ -129,7 +132,8 @@
 				}],
 				"Telefono":4500000,
 				"Capacidad":200,
-				"Clasificacion":4.6
+				"Clasificacion":4.6,
+				"Facebook":"https://www.facebook.com/chocolatediscooficial/"
 			}
   ]
 

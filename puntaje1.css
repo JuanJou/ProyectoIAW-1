@@ -1,5 +1,5 @@
 body{
-	background-color: #FDEBD0;
+	background-image: url(https://uns-iaw-2018-com09.github.io/ProyectoIAW/Imagenes/Fondo-pagina.jpg);
 }
 
 .Info{
@@ -9,6 +9,7 @@ body{
 	height:345px;
 	margin-left: 25px;
 	text-align: center;
+	background-color: #F6E3CE;
 }
 .Info h1{
 	padding: 7px;

@@ -138,6 +138,46 @@
 				"Capacidad":200,
 				"Clasificacion":4.6,
 				"Facebook":"https://www.facebook.com/Wir-Konnen-902683613146074/?ref=br_rs"
+			},
+			{
+				"Nombre_del_local":"Dale",
+				"ID":5,
+				"Ubicacion":
+				{
+					"lat":-38.70683093242293,
+					"lng":-62.25791484117508
+				},
+				"Direccion":"Fuerte Argentino 200",
+				"Tipo":"Carrito",
+				"Horario":[{
+					"Dia":"Domingo",
+					"Hora_Apertura":"20:30",
+					"Hora_Cierre":"00:00"
+				},{
+					"Dia":"Lunes",
+					"Hora_Apertura":"20:30",
+					"Hora_Cierre":"00:00"
+				},{
+					"Dia":"Miercoles",
+					"Hora_Apertura":"20:30",
+					"Hora_Cierre":"00:00"
+				},{
+					"Dia":"Jueves",
+					"Hora_Apertura":"20:30",
+					"Hora_Cierre":"00:00"
+				},{
+					"Dia":"Viernes",
+					"Hora_Apertura":"20:30",
+					"Hora_Cierre":"00:00"
+				},{
+					"Dia":"Sabado",
+					"Hora_Apertura":"20:30",
+					"Hora_Cierre":"00:00"
+				}],
+				"Telefono":4500000,
+				"Capacidad":15,
+				"Clasificacion":4.6,
+				"Facebook":"https://www.facebook.com/dalecomidas/"
 			}
   ]
 

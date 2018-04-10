@@ -21,6 +21,18 @@ body{
 	text-align: center;
 }
 
+.iconos{
+	text-align: center;
+	width: 40%;
+	height: 150px;
+	padding-top: 20px;
+	margin-left: 5%;
+	background-color: #F6E3CE;
+	overflow: hidden;
+	font-family: 'Raleway',sans-serif;
+	font-size: 13px;
+}
+
 .Info{
 	overflow: hidden;
 	float: right;

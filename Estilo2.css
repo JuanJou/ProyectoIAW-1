@@ -34,6 +34,18 @@ body{
 	font-family: 'Raleway',sans-serif;
 }
 
+.iconos{
+	text-align: center;
+	width: 40%;
+	height: 150px;
+	padding-top: 20px;
+	margin-left: 5%;
+	background-color: #1A252F;
+	overflow: hidden;
+	font-family: 'Raleway',sans-serif;
+	font-size: 13px;
+}
+
 .link{
 	color:red;
 }

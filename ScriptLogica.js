@@ -103,6 +103,7 @@ function cargaDeLocales(){
                     $("#Telefono").html(localClickeado.Telefono);
                     $("#HoraOpen").html("Hora de apertura:");
                     $("#HoraClose").html("Hora de cierre:");
+                    $("#Direccion").html(localClickeado.Direccion);
                     $("#facebook").attr("href",localClickeado.Facebook);
                     window.localStorage.setItem("LocalSeleccionado",localClickeado.Nombre_del_local);
                     console.log(localClickeado);

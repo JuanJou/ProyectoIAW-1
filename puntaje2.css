@@ -54,7 +54,7 @@ body{
 
 .comentario{
 	width: 50%;
-	margin:auto;
+	margin-left: 25px;
 	padding-top: 17px;
 	overflow: hidden;
 	font-family: "Raleway",sans-serif;

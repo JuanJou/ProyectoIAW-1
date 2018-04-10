@@ -25,7 +25,7 @@ function inicializar(){
 function inicializarPuntaje(){
   setearEstiloPuntaje();
   var seleccionado=consultarSeleccionado();
-  cargarImagenes(seleccionado.Nombre_del_local);
+  cargarImagenes(seleccionado);
 }
 
 function cargarImagenes(local){
@@ -40,11 +40,14 @@ function consultarSeleccionado(){
   var local=localStorage.getItem("LocalSeleccionado");
   if (local!=null){
     var ObjetoJSON=JSON.parse(local);
+    console.log(ObjetoJSON);
     $("#NombreLocal").html(ObjetoJSON.Nombre_del_local);
     $("#Tipo").html(ObjetoJSON.Tipo);
     $("#Telefono").html(ObjetoJSON.Telefono);
+    $("Direccion").html(ObjetoJSON.Direccion);
+    return ObjetoJSON.Nombre_del_local;
   }
-  return ObjetoJSON.Nombre_del_local;
+  return null;
 }
 
 

@@ -17,6 +17,7 @@ function myMap() {
 }
 
 function inicializar(){
+  localStorage.setItem('Estilo',1);
   setearEstilo();
   cargaDeLocales();
 }

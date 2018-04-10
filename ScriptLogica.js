@@ -17,7 +17,6 @@ function myMap() {
 }
 
 function inicializar(){
-  localStorage.setItem('Estilo',1);
   setearEstilo();
   cargaDeLocales();
 }
@@ -143,6 +142,15 @@ function cambiarEstilo(){
  $("#hojaEstilo").attr("href","Estilo"+estiloSiguiente+".css");
  localStorage.setItem("Estilo", estiloSiguiente);
  cambiarMapa(estiloSiguiente);
+}
+
+
+function cambiarEstiloPuntaje(){
+  var estiloActual=localStorage.getItem("Estilo");
+   var estiloSiguiente=Math.floor(1/estiloActual+1);
+   console.log(estiloSiguiente);
+   $("#hojaEstilo").attr("href","puntaje"+estiloSiguiente+".css");
+   localStorage.setItem("Estilo", estiloSiguiente);
 }
 
 function cambiarMapa(estilo){

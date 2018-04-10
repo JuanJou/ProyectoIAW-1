@@ -44,7 +44,7 @@ function consultarSeleccionado(){
     $("#NombreLocal").html(ObjetoJSON.Nombre_del_local);
     $("#Tipo").html(ObjetoJSON.Tipo);
     $("#Telefono").html(ObjetoJSON.Telefono);
-    $("Direccion").html(ObjetoJSON.Direccion);
+    $("#Direccion").html(ObjetoJSON.Direccion);
     return ObjetoJSON.Nombre_del_local;
   }
   return null;

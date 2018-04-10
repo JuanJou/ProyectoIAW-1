@@ -67,6 +67,7 @@ function setearEstiloPuntaje(){
 
 function setearEstilo(){
   var estiloActual=window.localStorage.getItem("Estilo");
+  console.log(estiloActual);
   if (estiloActual==null){
     $("#hojaEstilo").attr("href","Estilo1.css");
     cambiarMapa(1);

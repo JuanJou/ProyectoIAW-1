@@ -8,6 +8,7 @@
 					"lat":-38.704103600400295,
 					"lng":-62.26180136203766
 				},
+				"Direccion":"Fuerte Argentino 550",
 				"Tipo":"Cerveceria",
 				"Horario":[{
 					"Dia":"Domingo",
@@ -52,6 +53,7 @@
 					"lat":-38.70245077266048,
 					"lng":-62.268946215467054
 				},
+				"Direccion":"San Juan 651",
 				"Tipo":"Boliche",
 				"Horario":[{
 					"Dia":"Viernes",
@@ -76,6 +78,7 @@
 					"lat":-38.6992431238398,
 					"lng":-62.26498246192932
 				},
+				"Direccion":"Fuerte Argentino 700",
 				"Tipo":"Boliche",
 				"Horario":[{
 					"Dia":"Viernes",
@@ -100,6 +103,7 @@
 					"lat":-38.707716298732,
 					"lng":-62.26252555847168
 				},
+				"Direccion":"11 de Abril 602",
 				"Tipo":"Cerveceria",
 				"Horario":[{
 					"Dia":"Domingo",

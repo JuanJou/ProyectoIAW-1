@@ -38,13 +38,13 @@ function cargarImagenes(local){
 
 function consultarSeleccionado(){
   var local=localStorage.getItem("LocalSeleccionado");
-
   if (local!=null){
-    $("#NombreLocal").html(local.Nombre_del_local);
-    $("#Tipo").html(local.Tipo);
-    $("#Telefono").html(local.Telefono);
+    var ObjetoJSON=JSON.parse(local);
+    $("#NombreLocal").html(ObjetoJSON.Nombre_del_local);
+    $("#Tipo").html(ObjetoJSON.Tipo);
+    $("#Telefono").html(ObjetoJSON.Telefono);
   }
-  return local;
+  return ObjetoJSON.Nombre_del_local;
 }
 
 
@@ -104,7 +104,8 @@ function cargaDeLocales(){
                     $("#HoraClose").html("Hora de cierre:");
                     $("#Direccion").html(localClickeado.Direccion);
                     $("#facebook").attr("href",localClickeado.Facebook);
-                    localStorage.setItem("LocalSeleccionado",localClickeado);
+                    var ObjetoJSON=JSON.stringify(localClickeado);
+                    localStorage.setItem("LocalSeleccionado",ObjetoJSON);
                 });
             })(marker, data);
     }

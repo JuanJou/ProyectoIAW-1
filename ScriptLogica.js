@@ -34,9 +34,11 @@ function inicializarPuntaje(){
 }
 
 function cargarImagenes(local){
-  $("#imagen1").attr("src",'https://uns-iaw-2018-com09.github.io/ProyectoIAW/Imagenes/'+local+'1.jpg');
-  $("#imagen2").attr("src",'https://uns-iaw-2018-com09.github.io/ProyectoIAW/Imagenes/'+local+'2.jpg');
-  $("#imagen3").attr("src",'https://uns-iaw-2018-com09.github.io/ProyectoIAW/Imagenes/'+local+'3.jpg');
+  if (local!=null){
+    $("#imagen1").attr("src",'https://uns-iaw-2018-com09.github.io/ProyectoIAW/Imagenes/'+local+'1.jpg');
+    $("#imagen2").attr("src",'https://uns-iaw-2018-com09.github.io/ProyectoIAW/Imagenes/'+local+'2.jpg');
+    $("#imagen3").attr("src",'https://uns-iaw-2018-com09.github.io/ProyectoIAW/Imagenes/'+local+'3.jpg');
+  }
 }
 
 function consultarSeleccionado(){

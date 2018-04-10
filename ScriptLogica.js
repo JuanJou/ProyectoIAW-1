@@ -25,7 +25,7 @@ function inicializar(){
 function inicializarPuntaje(){
   setearEstiloPuntaje();
   var seleccionado=consultarSeleccionado();
-  cargarImagenes(seleccionado);
+  cargarImagenes(seleccionado.Nombre_del_local);
 }
 
 function cargarImagenes(local){
@@ -39,12 +39,11 @@ function cargarImagenes(local){
 function consultarSeleccionado(){
   var local=localStorage.getItem("LocalSeleccionado");
 
-  // if (local!=null){
-  //   console.log(objetoLocal);
-  //   $("#NombreLocal").html(objetoLocal.Nombre_del_local);
-  //   $("#Tipo").html(objetoLocal.Tipo);
-  //   $("#Telefono").html(objetoLocal.Telefono);
-  // }
+  if (local!=null){
+    $("#NombreLocal").html(local.Nombre_del_local);
+    $("#Tipo").html(local.Tipo);
+    $("#Telefono").html(local.Telefono);
+  }
   return local;
 }
 
@@ -105,8 +104,7 @@ function cargaDeLocales(){
                     $("#HoraClose").html("Hora de cierre:");
                     $("#Direccion").html(localClickeado.Direccion);
                     $("#facebook").attr("href",localClickeado.Facebook);
-                    window.localStorage.setItem("LocalSeleccionado",localClickeado.Nombre_del_local);
-                    console.log(localClickeado);
+                    localStorage.setItem("LocalSeleccionado",localClickeado);
                 });
             })(marker, data);
     }

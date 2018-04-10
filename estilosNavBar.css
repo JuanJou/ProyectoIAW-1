@@ -88,3 +88,8 @@ div{
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px; 
 }
+
+.piePagina{
+    background-color: white;
+    font-family: 'Raleway',sans-serif;
+}

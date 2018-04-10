@@ -53,7 +53,7 @@ function consultarSeleccionado(){
 function setearEstiloPuntaje(){
   var estiloActual=localStorage.getItem("Estilo");
   console.log(estiloActual);
-  if (estiloActual==null){
+  if (estiloActual=='Infinity'){
     $("#hojaEstilo").attr("href","puntaje1.css");
   }
   else{
@@ -69,7 +69,7 @@ function setearEstiloPuntaje(){
 function setearEstilo(){
   var estiloActual=window.localStorage.getItem("Estilo");
   console.log(estiloActual);
-  if (estiloActual==null){
+  if (estiloActual=='Infinity'){
     $("#hojaEstilo").attr("href","Estilo1.css");
     cambiarMapa(1);
   }

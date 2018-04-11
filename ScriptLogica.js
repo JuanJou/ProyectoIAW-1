@@ -107,6 +107,7 @@ function cargaDeLocales(){
                     $("#HoraClose").html("Hora de cierre:");
                     $("#Direccion").html(localClickeado.Direccion);
                     $("#facebook").attr("href",localClickeado.Facebook);
+                    $("#Clasificacion").html("Clasificacion: "+localClickeado.Clasificacion);
                     var ObjetoJSON=JSON.stringify(localClickeado);
                     localStorage.setItem("LocalSeleccionado",ObjetoJSON);
                 });
@@ -189,12 +190,14 @@ function mostrarHorario(event){
 
 function guardarComentario(){
   var textoComentario=$("#comment").val();
+  $("#comment").val("Ingrese un comentario...")
   var valoracion=0;
   for (var i = 1; i<6; i++) {
     if ($("#radio"+i).is(':checked')){
       valoracion=6-i;
       break;
     }
+    $("#radio"+i).is(':checked',true)
   }
   console.log($("#NombreLocal").html());
 
@@ -204,6 +207,13 @@ function guardarComentario(){
 
   localStorage.setItem(local_comment,textoComentario);
   localStorage.setItem(local_value,valoracion);
-  console.log(localStorage.getItem(local_comment));
-  console.log(localStorage.getItem(local_value));
+
+  alert("Comentario enviado");
+}
+
+function cargarComentarios(){
+  var seleccionado=$("#NombreLocal").html()+"-comment";
+  var comment=localStorage.getItem(seleccionado);
+  console.log(comment);
+  $("#campoComentarios").html(comment);
 }

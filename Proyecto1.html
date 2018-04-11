@@ -75,7 +75,6 @@
       </div>
     </div>
 
-
     <div id="PanelMapa" class="PanelMapa rounded">
       <h2>Mapa de Bahía Blanca</h2>
       <div id="googleMap" class="mapa"></div>
@@ -105,6 +104,31 @@
       <h4 id="HoraClose" class="font-weight-light">Hora de cierre:</h4>
       <a id="facebook" target="_blank" class="link">
       <img src="https://uns-iaw-2018-com09.github.io/ProyectoIAW/Imagenes/facebook.png">Pagina de Facebook</a>
+
+      <div class="comentarios">
+        <button type="button" class="btn btn-info boton" data-toggle="modal" data-target="#exampleModalLong" onclick="cargarComentarios()">Ver comentarios</button>
+        <label id="Clasificacion" class="clasif">Clasificacion:</label>
+      </div>
+    </div>
+
+        <!-- Modal -->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Comentarios</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div id="campoComentarios" class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div id="iconosMapa" class="iconos">

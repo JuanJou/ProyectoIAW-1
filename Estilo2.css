@@ -74,3 +74,15 @@ body{
 	height: 470px;
 	text-align: center;
 }
+
+.clasif{
+	float: left;
+	margin-left:15px;
+	margin-top: 12px;
+}
+
+.boton{
+	float: right;
+	margin-right:15px;
+	margin-top: 7px;
+}

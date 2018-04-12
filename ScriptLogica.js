@@ -102,20 +102,24 @@ function cargaDeLocales(){
       (function (marker, data) {
                 google.maps.event.addListener(marker, "click", function (e) {
                     var localClickeado=AlmacenamientoLocales.get(marker.title);
-                    $("#NombreLocal").html(localClickeado.Nombre_del_local);
-                    $("#Tipo").html(localClickeado.Tipo);
-                    $("#Telefono").html(localClickeado.Telefono);
-                    $("#HoraOpen").html("Hora de apertura:");
-                    $("#HoraClose").html("Hora de cierre:");
-                    $("#Direccion").html(localClickeado.Direccion);
-                    $("#facebook").attr("href",localClickeado.Facebook);
-                    $("#Clasificacion").html("Clasificacion: "+localClickeado.Clasificacion);
+                    setearInformacionLocal(localClickeado);
                     var ObjetoJSON=JSON.stringify(localClickeado);
                     localStorage.setItem("LocalSeleccionado",ObjetoJSON);
                 });
             })(marker, data);
     }
   });
+}
+
+function setearInformacionLocal(local){
+  $("#NombreLocal").html(local.Nombre_del_local);
+  $("#Tipo").html(local.Tipo);
+  $("#Telefono").html(local.Telefono);
+  $("#HoraOpen").html("Hora de apertura:");
+  $("#HoraClose").html("Hora de cierre:");
+  $("#Direccion").html(local.Direccion);
+  $("#facebook").attr("href",local.Facebook);
+  $("#Clasificacion").html("Clasificacion: "+local.Clasificacion);
 }
 
 function makeIcon(tipo){
@@ -193,6 +197,34 @@ function mostrarHorario(event){
 function guardarComentario(){
   var textoComentario=$("#comment").val();
   $("#comment").val("Ingrese un comentario...")
+  var valoracion=obtenerValoracion();
+  
+  console.log(valoracion);
+  console.log($("#NombreLocal").html());
+
+  var local=$("#NombreLocal").html();
+  var local_comment=local+"-comment";
+  var local_value=local+"-value";
+
+  var listaComentarios=localStorage.getItem(local_comment);
+
+  var arrayComentarios=null;
+
+  if (listaComentarios==null){
+    arrayComentarios=[];
+  }
+  else{
+    arrayComentarios=JSON.parse(listaComentarios);
+  }
+
+  arrayComentarios.push(textoComentario);
+
+  localStorage.setItem(local_comment,JSON.stringify(arrayComentarios));
+
+  alert("Comentario enviado");
+}
+
+function obtenerValoracion(){
   var valoracion=0;
   for (var i = 1; i<6; i++) {
     if ($("#radio"+i).is(':checked')){
@@ -201,21 +233,24 @@ function guardarComentario(){
     }
     $("#radio"+i).is(':checked',true)
   }
-  console.log($("#NombreLocal").html());
-
-  var local=$("#NombreLocal").html();
-  var local_comment=local+"-comment";
-  var local_value=local+"-value";
-
-  localStorage.setItem(local_comment,textoComentario);
-  localStorage.setItem(local_value,valoracion);
-
-  alert("Comentario enviado");
+  return valoracion;
 }
 
+
 function cargarComentarios(){
+  
   var seleccionado=$("#NombreLocal").html()+"-comment";
   var comment=localStorage.getItem(seleccionado);
-  console.log(comment);
-  $("#campoComentarios").html(comment);
+
+  $("#campoComentarios").html(" ");
+
+  if (comment!=null){
+    var listaDeComentarios=JSON.parse(comment);
+    console.log(listaDeComentarios);
+    listaDeComentarios.forEach(function(element){
+      console.log(element);
+      var comentariosActual=$("#campoComentarios").html();
+      $("#campoComentarios").html(comentariosActual+"<div>"+element+"</div><hr>");
+    });
+  }
 }

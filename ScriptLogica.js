@@ -70,7 +70,7 @@ function setearEstiloPuntaje(){
 function setearEstilo(){
   var estiloActual=window.localStorage.getItem("Estilo");
   console.log(estiloActual);
-  if (estiloActual=='Infinity'){
+  if ((estiloActual==null) || (estiloActual=='Infinity')){
     $("#hojaEstilo").attr("href","Estilo1.css");
     cambiarMapa(1);
   }

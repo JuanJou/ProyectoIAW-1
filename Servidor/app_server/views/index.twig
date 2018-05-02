@@ -1,0 +1,68 @@
+{% extends 'layout.twig' %}
+
+{%block links%}
+  <link href="stylesheets/estilosNavBar.css" rel="stylesheet">
+  <link href="stylesheets/Estilo1.css" rel="stylesheet">
+  <script defer type="text/javascript" src="javascripts/ScriptLogica.js"></script>
+  <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfErfn3Hop9TIhHgcFawgNeQhrli9-0Ac&callback=myMap"></script>
+{%endblock%}
+
+
+{% block body %}
+  <div id="PanelMapa" class="PanelMapa rounded">
+    <h2>Mapa de Bahía Blanca</h2>
+    <div id="googleMap" class="mapa"></div>
+  </div>
+
+  <!-- Panel con informacion del local seleccionado -->
+  <div id="infoLocal" class="Info rounded">
+    <h1 id="NombreLocal">Nombre</h1>
+    <h2 id="Tipo">Tipo</h2>
+    <h3 id="Direccion">Direccion</h3>
+    <h3 id="Telefono">Telefono</h3>
+    <div class="btn-group">
+      <button id="dropdown" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Elegir dia...
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#" onclick="mostrarHorario(this)">Domingo</a>
+        <a class="dropdown-item" href="#" onclick="mostrarHorario(this)">Lunes</a>
+        <a class="dropdown-item" href="#" onclick="mostrarHorario(this)">Martes</a>
+        <a class="dropdown-item" href="#" onclick="mostrarHorario(this)">Miercoles</a>
+        <a class="dropdown-item" href="#" onclick="mostrarHorario(this)">Jueves</a>
+        <a class="dropdown-item" href="#" onclick="mostrarHorario(this)">Viernes</a>
+        <a class="dropdown-item" href="#" onclick="mostrarHorario(this)">Sabado</a>
+      </div>
+    </div>
+    <h4 id="HoraOpen" class="font-weight-light">Hora de apertura:</h4>
+    <h4 id="HoraClose" class="font-weight-light">Hora de cierre:</h4>
+    <a id="facebook" target="_blank" class="link">
+
+    <div class="comentarios">
+      <button type="button" class="btn btn-info boton" data-toggle="modal" data-target="#exampleModalLong" onclick="cargarComentarios()">Ver comentarios</button>
+      <label id="Clasificacion" class="clasif">Clasificacion:</label>
+    </div>
+  </div>
+
+      <!-- Modal -->
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Comentarios</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div id="campoComentarios" class="modal-body modal-comentarios">
+          <div>Primer comentario</div>
+          <hr>
+          <div>Segundo comentario</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

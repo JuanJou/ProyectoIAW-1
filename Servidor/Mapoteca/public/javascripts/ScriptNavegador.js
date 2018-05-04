@@ -1,6 +1,7 @@
 
 var map;
 var coleccionLocales;
+var bounds;
 
 var AlmacenamientoLocales=new Map();
 
@@ -8,10 +9,22 @@ var markers=[];
 
 function inicializar(){
     localStorage.setItem("Estilo",1);
-    FB.getLoginStatus(function(status){
-      statusChangeCallback(response);
-    });
 }
+
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
 
 function cambiarEstilo(){
     var estiloActual=localStorage.getItem("Estilo");
@@ -35,7 +48,7 @@ function myMap() {
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-
+    bounds=new google.maps.LatLngBounds();
     $.get("http://localhost:8080/stylesheets/EstiloMapa1.json",function(data){
       map.setOptions(data);
     });
@@ -55,12 +68,16 @@ function cargarMarcador(){
         map:map
       });
       markers.push(marker);
+      bounds.extend(new google.maps.LatLng(marker.position.lat(),marker.position.lng()));
       (function (marker,i) {
                 google.maps.event.addListener(marker, "click", function (i) {
+                    map.panTo(marker.position);
                     setearInformacionLocal(AlmacenamientoLocales.get(marker.title));
                 });
             })(marker, data);
     }
+    map.fitBounds(bounds);
+    map.panToBounds(bounds);
   });
 }
 
@@ -74,6 +91,7 @@ function setearInformacionLocal(local){
   mostrarHorario(obtenerDiaSemana(fecha.getDay()));
   $("#Direccion").html(local.direccion);
   $("#Clasificacion").html("Clasificacion: "+local.valoracion);
+  $("#Telefono").html(local.telefono);
 }
 
 function mostrarHorario(dia){
@@ -141,4 +159,36 @@ function agregarTodosLosMarcadores(){
   for (var i = 0; i < markers.length; i++) {
     markers[i].setMap(map);
   }
+}
+
+function cargarImagenes(){
+  var local=$("#NombreLocal").html();
+  if (local!="Nombre"){
+    $("#imagen1").attr('src',"/images/"+local+"1.jpg");
+    $("#imagen2").attr('src',"/images/"+local+"2.jpg");
+    $("#imagen3").attr('src',"/images/"+local+"3.jpg");
+  }
+}
+
+function cargarComentarios(){
+
+}
+
+function guardarComentario(){
+  var textoComentario=$("#comment").val();
+  $("#comment").val("Ingrese un comentario...")
+  var valoracion=obtenerValoracion();
+  console.log(valoracion);
+}
+
+function obtenerValoracion(){
+  var valoracion=0;
+  for (var i = 1; i<6; i++) {
+    if ($("#radio"+i).is(':checked')){
+      valoracion=6-i;
+      break;
+    }
+  }
+  $("input:radio").prop("checked", false);
+  return valoracion;
 }

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const dbURI = 'mongodb://localhost/localesNocturnos';
+const dbURI = 'mongodb://admin:admin@ds113870.mlab.com:13870/localesnocturnos';
 mongoose.connect(dbURI);
 
 mongoose.connection.on('connected', () => {

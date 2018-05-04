@@ -4,9 +4,11 @@
     <title>{{ title }}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="stylesheets/estilosNavBar.css" rel="stylesheet">
+    <link href="stylesheets/EstiloPuntaje.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Raleway:400i" rel="stylesheet">
     <script type="text/javascript" src="javascripts/jquery-3.3.1.min.js"></script>
     {%block links%}{%endblock%}
+    <meta name="google-signin-client_id" content="926151368412-0hf4jpdtnhj12cvtf12dsp7kerap8t41">
   </head>
   <body onload="inicializar()">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -19,13 +21,10 @@
             <li class="nav-item">
               <a class="nav-link" href="https://uns-iaw-2018-com09.github.io/ProyectoIAW/index.html">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://uns-iaw-2018-com09.github.io/ProyectoIAW/Puntaje.html">Puntaje</a>
-            </li>
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
+              <div class="g-signin2 boton-in" data-onsuccess="onSignIn"></div>
             </li>
           </ul>
         </div>
@@ -58,34 +57,38 @@
         </div>
       </div>
 
-
     {% block body %}{% endblock %}
+
+      <footer class="page-footer font-small blue pt-4 mt-4 piePagina">
+
+        <!--Footer Links-->
+        <div class="container-fluid text-center text-md-left">
+            <div class="row">
+
+                <!--First column-->
+                <div class="col-md-6">
+                    <h5 class="text-uppercase">Sobre Nosotros...</h5>
+                    <p>Dimatz,Juan y Jouglard, Juan Francisco</p>
+                </div>
+                <!--/.First column-->
+            </div>
+        </div>
+        <!--/.Footer Links-->
+
+        <!--Copyright-->
+        <div class="footer-copyright py-3 text-center">
+            © 2018 Copyright:
+            <a href="https://uns-iaw-2018-com09.github.io/ProyectoIAW/">Proyecto</a>
+        </div>
+        <!--/.Copyright-->
+
+    </footer>
+
 
 
   </body>
 
-  <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '2042282486054086',
-        cookie     : true,
-        xfbml      : true,
-        version    : 'v3.0'
-      });
-
-      FB.AppEvents.logPageView();
-
-    };
-
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "https://connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-   </script>
-
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 

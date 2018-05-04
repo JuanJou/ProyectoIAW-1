@@ -41,7 +41,7 @@
 
     <div class="comentarios">
       <button type="button" class="btn btn-info boton" data-toggle="modal" data-target="#exampleModalLong" onclick="cargarComentarios()">Ver comentarios</button>
-      <label id="Clasificacion" class="clasif">Clasificacion:</label>
+      <button type="button" class="btn btn-info boton" data-toggle="modal" data-target="#modalPuntaje" onclick="cargarImagenes()">Puntuar</button>
     </div>
   </div>
 
@@ -62,6 +62,24 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalPuntaje" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Puntaje</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% include "shared/carouselImages.twig" %}
+        {% include "shared/comentarios.twig" %}
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info boton" data-dismiss="modal" onclick="guardarComentario()">Enviar</button>
         </div>
       </div>
     </div>

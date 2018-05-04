@@ -22,7 +22,7 @@ body{
 }
 .Info h3{
 	padding: 7px;
-	font-family: 'Raleway',sans-serif;	
+	font-family: 'Raleway',sans-serif;
 }
 
 .Info h4{
@@ -33,13 +33,12 @@ body{
 .fotos{
 	overflow: hidden;
 	width: 45%;
-	height: 300px;
 	float: right;
 	height:345px;
-	margin-right: 25px; 
-    border:solid;
-    border-color:white;
-    border-width: 3px;
+	margin-right: 25px;
+  border:solid;
+  border-color:white;
+  border-width: 3px;
 }
 
 .images {

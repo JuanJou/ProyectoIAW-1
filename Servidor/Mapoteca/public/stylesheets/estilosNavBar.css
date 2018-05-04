@@ -3,10 +3,14 @@ body{
     font-family: 'Lobster',cursive ;
 }
 
+.boton-in{
+  margin-right: 5px;
+}
+
 .busqueda{
 	width: 300px;
     float: left;
-    margin: auto; 
+    margin: auto;
 }
 
 .botonBuscar{
@@ -31,7 +35,7 @@ body{
 
 .Titulo {
 	color: black;
-	text-align: center; 
+	text-align: center;
 	font-style: normal;
 	font-family: Helvetica;
 	padding: 20px;
@@ -75,13 +79,13 @@ body{
     position: absolute; top: 3px; bottom: 0;
     right: 53px;
     border: 2px solid #999999; border-radius: 20px;
-    transition: all 0.3s ease-in 0s; 
+    transition: all 0.3s ease-in 0s;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
     margin-left: 0;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-    right: 0px; 
+    right: 0px;
 }
 
 .piePagina{

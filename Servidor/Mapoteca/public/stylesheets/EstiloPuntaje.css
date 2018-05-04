@@ -1,0 +1,69 @@
+
+.comentario{
+	width: 90%;
+	margin-left: 5%;
+  margin-right: 5%;
+	font-family: "Raleway",sans-serif;
+}
+
+
+.etiqueta{
+	text-align: left;
+}
+
+.estrellas{
+	width: 30%;
+	float: left;
+}
+
+#form {
+  width: 250px;
+  margin: 0 auto;
+  height: 50px;
+}
+
+#form p {
+  text-align: left;
+}
+
+#form label {
+  font-size: 25px;
+}
+
+.boton{
+	margin-left: 10px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  color: grey;
+}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+label:hover,
+label:hover ~ label {
+  color: orange;
+}
+
+input[type="radio"]:checked ~ label {
+  color: orange;
+}
+
+
+.fotos{
+	width: 90%;
+	float: right;
+	height:345px;
+	margin-right: 5%;
+  margin-left: 5%;
+  border:solid;
+  border-color:white;
+  border-width: 3px;
+}

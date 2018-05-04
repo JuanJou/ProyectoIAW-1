@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="stylesheets/estilosNavBar.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Raleway:400i" rel="stylesheet">
+    <script type="text/javascript" src="javascripts/jquery-3.3.1.min.js"></script>
+    {%block links%}{%endblock%}
+  </head>
+  <body onload="inicializar()">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">GiraBahiense</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="https://uns-iaw-2018-com09.github.io/ProyectoIAW/index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://uns-iaw-2018-com09.github.io/ProyectoIAW/Puntaje.html">Puntaje</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
+            </li>
+          </ul>
+        </div>
+        <div class="onoffswitch">
+          <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked onclick="cambiarEstilo()">
+          <label class="onoffswitch-label" for="myonoffswitch">
+              <span class="onoffswitch-inner"></span>
+              <span class="onoffswitch-switch"></span>
+          </label>
+        </div>
+      </nav>
+
+      <!-- Input para buscar locales -->
+    <div class="espacio">
+      <div style="margin: auto;width: 500px">
+            <div class="input-group">
+              <input type="text" class="form-control busqueda" aria-label="Text input with dropdown button">
+              <div class="input-group-btn">
+                <button id="filtros" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Todos
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="#" onclick="filtrar(this)">Todos</a>
+                  <a class="dropdown-item" href="#" onclick="filtrar(this)">Cerveceria</a>
+                  <a class="dropdown-item" href="#" onclick="filtrar(this)">Boliche</a>
+                  <a class="dropdown-item" href="#" onclick="filtrar(this)">Carrito</a>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+
+    {% block body %}{% endblock %}
+
+
+  </body>
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '2042282486054086',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v3.0'
+      });
+
+      FB.AppEvents.logPageView();
+
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+   </script>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</html>

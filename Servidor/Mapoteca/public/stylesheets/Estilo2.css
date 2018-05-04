@@ -1,0 +1,92 @@
+
+
+body{
+	background-image:url(../images/FondoNight.jpg);
+	color:#FFFFFF;
+}
+
+.Info{
+	margin-left:13%;
+	margin-right:13%;
+	margin-top: 15px;
+	width:74%;
+	background-color: #1A252F;
+	height: 470px;
+	text-align: center;
+}
+
+.Info h1{
+	padding: 7px;
+}
+
+.Info h2{
+	padding: 7px;
+	font-style: italic;
+}
+.Info h3{
+	padding: 7px;
+	font-family: 'Raleway',sans-serif;
+}
+
+.Info h4{
+	padding: 7px;
+	font-style: italic;
+	font-family: 'Raleway',sans-serif;
+}
+
+.iconos{
+	text-align: center;
+	width: 40%;
+	margin-left: 5%;
+	background-color: #1A252F;
+	overflow: hidden;
+	font-family: 'Raleway',sans-serif;
+	font-size: 13px;
+}
+
+.iconos h4{
+	font-size: 17px;
+}
+
+.link{
+	color:red;
+}
+
+.link:hover{
+	color:white;
+}
+
+.mapa{
+	width:90%;
+	height:350px;
+	padding:5px;
+	position: relative;
+	top:20px;
+	margin:auto;
+}
+
+.PanelMapa{
+	padding-top: 7px;
+	margin-left:13%;
+	margin-right:13%;
+	background-color: #1A252F;
+	width: 74%;
+	height: 470px;
+	text-align: center;
+}
+
+.clasif{
+	float: left;
+	margin-left:15px;
+	margin-top: 12px;
+}
+
+.boton{
+	float: right;
+	margin-right:15px;
+	margin-top: 7px;
+}
+
+.modal-comentarios{
+	font-family: "Arial",sans-serif;
+}

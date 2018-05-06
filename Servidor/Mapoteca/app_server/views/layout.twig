@@ -4,27 +4,28 @@
     <title>{{ title }}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="stylesheets/estilosNavBar.css" rel="stylesheet">
+    <link href="stylesheets/EstiloComun.css" rel="stylesheet">
     <link href="stylesheets/EstiloPuntaje.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Raleway:400i" rel="stylesheet">
     <script type="text/javascript" src="javascripts/jquery-3.3.1.min.js"></script>
     {%block links%}{%endblock%}
-    <meta name="google-signin-client_id" content="926151368412-0hf4jpdtnhj12cvtf12dsp7kerap8t41">
+    <meta name="google-signin-client_id" content="926151368412-6q1gmvli7atfbho0mpfhrvfijtkm9chp">
   </head>
   <body onload="inicializar()">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">GiraBahiense</a>
+        <a class="navbar-brand" href="https://girabahiense.herokuapp.com/">GiraBahiense</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="https://uns-iaw-2018-com09.github.io/ProyectoIAW/index.html">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="https://girabahiense.herokuapp.com/">Home <span class="sr-only">(current)</span></a>
             </li>
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <div class="g-signin2 boton-in" data-onsuccess="onSignIn"></div>
+              <div class="g-signin2 boton-in" data-onsuccess="onSignIn" data-text="Sign in"></div>
             </li>
           </ul>
         </div>
@@ -41,7 +42,7 @@
     <div class="espacio">
       <div style="margin: auto;width: 500px">
             <div class="input-group">
-              <input type="text" class="form-control busqueda" aria-label="Text input with dropdown button">
+              <input id="buscador" type="text" class="form-control busqueda" aria-label="Text input with dropdown button" placeholder="Buscar local...">
               <div class="input-group-btn">
                 <button id="filtros" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Todos
@@ -52,6 +53,7 @@
                   <a class="dropdown-item" href="#" onclick="filtrar(this)">Boliche</a>
                   <a class="dropdown-item" href="#" onclick="filtrar(this)">Carrito</a>
                 </div>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="buscarLocal()">Buscar</button>
               </div>
             </div>
         </div>

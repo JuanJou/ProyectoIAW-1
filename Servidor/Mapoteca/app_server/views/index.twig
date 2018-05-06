@@ -3,7 +3,12 @@
 {%block links%}
   <link href="stylesheets/estilosNavBar.css" rel="stylesheet">
   <link id="hojaEstilo" href="stylesheets/Estilo1.css" rel="stylesheet">
-  <script type="text/javascript" src="javascripts/ScriptNavegador.js"></script>
+
+  <script type="text/javascript" src="javascripts/logicaInformacion.js"></script>
+  <script type="text/javascript" src="javascripts/logicaUsuarios.js"></script>
+  <script type="text/javascript" src="javascripts/logicaMapa.js"></script>
+  <script type="text/javascript" src="javascripts/logicaComentarios.js"></script>
+
   <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfErfn3Hop9TIhHgcFawgNeQhrli9-0Ac&callback=myMap"></script>
 {%endblock%}
 
@@ -12,8 +17,25 @@
   <div id="PanelMapa" class="PanelMapa rounded">
     <h2>Mapa de Bahía Blanca</h2>
     <div id="googleMap" class="mapa"></div>
+
     <script defer>cargarMarcador()</script>
   </div>
+
+  <div id="iconosMapa" class="iconos">
+    <div class="row">
+      <div class="col-md">
+        <h4><img src="images/Cerveceria.png">: Cerveceria
+        </h4>
+      </div>
+      <div class="col-md">
+        <h4><img src="images/Boliche.png">: Boliche</h4>
+      </div>
+      <div class="col-md">
+        <h4><img src="images/Carrito.png">: Carrito</h4>
+      </div>
+    </div>
+  </div>
+
 
   <!-- Panel con informacion del local seleccionado -->
   <div id="infoLocal" class="Info rounded" style="display:none;">
@@ -41,7 +63,7 @@
 
     <div class="comentarios">
       <button type="button" class="btn btn-info boton" data-toggle="modal" data-target="#exampleModalLong" onclick="cargarComentarios()">Ver comentarios</button>
-      <button type="button" class="btn btn-info boton" data-toggle="modal" data-target="#modalPuntaje" onclick="cargarImagenes()">Puntuar</button>
+      <button id="botonPuntuar" type="button" class="btn btn-info boton" data-toggle="modal" data-target="#modalPuntaje" onclick="cargarImagenes()" disabled>Puntuar</button>
     </div>
   </div>
 

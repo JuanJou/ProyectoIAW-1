@@ -8,11 +8,16 @@ require('./app_server/models/db');
 const passport = require('passport');
 const googleOauth=require('passport-google-oauth20');
 const GoogleStrategy=googleOauth.Strategy;
+const session=require('express-session');
+const config=require('./config');
+var morgan = require('morgan');
 
 const indexRouter = require('./app_server/routes/index');
 const searchLocals= require('./app_server/routes/SearchLocalInDataBase');
-const app = express();
+const apiUser= require('./app_server/routes/ApiUserState');
+const apiComentarios= require('./app_server/routes/apiComments');
 
+const app=express();
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.set('view engine', 'twig');
@@ -21,13 +26,17 @@ app.locals.title = 'GiraBahiense';
 
 app.use(logger('dev'));
 app.use(express.json());
+app.use(morgan(':method :url :response-time'));
 app.use(express.urlencoded({ extended: false }));
+app.set('json spaces', 2);
 app.use(cookieParser());
-app.use(bodyParser.json())
-
-app.use(require('express-session')({
-  secret: 'nodejs-twig-secret',
-  resave: true,
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+app.use(bodyParser.json());
+app.use(session({
+  secret: config.session.secret,
+  resave: false,
   saveUninitialized: true
 }));
 
@@ -40,8 +49,32 @@ app.use('/shared',  express.static(__dirname + '/app_server/views/shared'));
 
 app.use('/', indexRouter);
 app.use('/searchLocals',searchLocals);
+app.use('/userState',apiUser);
+app.use('/apiComment',apiComentarios);
+
+app.get('/auth/google',
+  passport.authenticate('google', {
+    scope: [
+    'https://www.googleapis.com/auth/userinfo.profile',
+    'https://www.googleapis.com/auth/userinfo.email'
+    ]
+  }));
 
 
+
+
+app.get('/auth/google/callback',
+  passport.authenticate('google', {
+    failureRedirect: '/login'
+  }),
+  function(req, res) {
+    res.redirect('/');
+  });
+
+app.get('/logout', function(req, res) {
+  req.logout();
+  res.redirect('/');
+});
 
 
 // catch 404 and forward to error handler
@@ -60,19 +93,37 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-const User = require('./app_server/models/users');
+
+//-------------------------------Passport authentication--------------------------------------------------------
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
+});
 
 passport.use(new GoogleStrategy({
-    clientID: "926151368412-0hf4jpdtnhj12cvtf12dsp7kerap8t41",
-    clientSecret: "PfTib1UNjEIlTAB1XGzV0Dcs",
-    callbackURL: "http://www.example.com/auth/google/callback"
-  },
-  function(accessToken, refreshToken, profile, cb) {
-    User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      return cb(err, user);
-    });
-  }
+  clientID: config.google.client.id,
+  clientSecret: config.google.client.secret,
+  callbackURL: config.google.client.callbackUrl
+},
+function(accessToken, refreshToken, profile, done) {
+  // asynchronous verification, for effect...
+  process.nextTick(function() {
+    //console.log(profile);
+
+    // To keep the example simple, the user's Google profile is returned to
+    // represent the logged-in user.  In a typical application, you would want
+    // to associate the Google account with a user record in your database,
+    // and return that user instead.
+    return done(null, profile);
+  });
+}
 ));
 
+
+//----------------------------------------------------------------------------------------------
 
 module.exports = app;

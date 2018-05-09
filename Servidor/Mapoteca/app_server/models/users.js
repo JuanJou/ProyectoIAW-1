@@ -3,8 +3,12 @@ const mongoose = require('mongoose');
 
 const userSchema=new mongoose.Schema({
   user:String,
-  localSeleccionado:String,
-  estiloActual:Number,
+  localSeleccionado:{
+    type:String,
+    default:"Nada"},
+  estiloActual:{
+    type:Number,
+    default:1}
 });
 
-mongoose.model("User",userSchema);
+mongoose.model("user",userSchema);

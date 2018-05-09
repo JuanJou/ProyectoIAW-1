@@ -37,3 +37,5 @@ process.on('SIGTERM', () => {                      
 });
 
 require('./locales');
+require('./users');
+require('./comments');

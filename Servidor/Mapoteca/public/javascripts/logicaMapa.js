@@ -1,6 +1,12 @@
 var map;
 var markers=[];
 
+var coleccionLocales;
+var bounds;
+
+var AlmacenamientoLocales=new Map();
+
+
 function myMap() {
     var mapProp= {
       center:new google.maps.LatLng(-38.7167,-62.2833),
@@ -19,7 +25,6 @@ function cargarMarcador(){
   $.get("https://girabahiense.herokuapp.com/searchLocals",function(data){
     locales=JSON.parse(data);
     coleccionLocales=locales;
-    console.log(locales);
     for(var i=0;i<locales.length;i++){
       AlmacenamientoLocales.set(locales[i].nombre,locales[i]);
       var marker=new google.maps.Marker({
@@ -32,11 +37,15 @@ function cargarMarcador(){
       bounds.extend(new google.maps.LatLng(marker.position.lat(),marker.position.lng()));
       (function (marker,i) {
                 google.maps.event.addListener(marker, "click", function (i) {
+                  $.post('https://girabahiense.herokuapp.com/userState/updateLocal',{"local":marker.title},function(data){
+                    console.log(data);
+                  });
                     map.panTo(marker.position);
                     setearInformacionLocal(AlmacenamientoLocales.get(marker.title));
                 });
             })(marker, data);
     }
+    cargarBusqueda();
     map.fitBounds(bounds);
     map.panToBounds(bounds);
   });

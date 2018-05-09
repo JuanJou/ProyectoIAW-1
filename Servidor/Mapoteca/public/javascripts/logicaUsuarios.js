@@ -1,29 +1,44 @@
 var sesionIniciada=false;
 
 function inicializar(){
-    localStorage.setItem("Estilo",1);
+
 }
 
-function onSignIn(googleUser) {
-  if (!sesionIniciada){
-    var profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-    document.getElementById("botonPuntuar").disabled = false;
-    sesionIniciada=true;
-  }
-  else {
-    signOut();
-  }
+
+function iniciarSesion(){
+  $("#botonPuntuar").attr("disabled",false);
 }
 
-function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
+
+function cambiarEstilo(){
+    var estiloActual=localStorage.getItem("Estilo");
+    var estiloSiguiente=Math.floor(1/estiloActual+1);
+    $("#hojaEstilo").attr("href","stylesheets/Estilo"+estiloSiguiente+".css");
+    localStorage.setItem("Estilo",estiloSiguiente);
+    cambiarEstiloMapa(estiloSiguiente);
+    $.post('https://girabahiense.herokuapp.com/userState/updateStyle',{"style":estiloSiguiente},function(data){
+      console.log(data);
     });
-    document.getElementById("botonPuntuar").disabled = true;
-    sesionIniciada=false;
+}
+
+function loadUser(){
+  localStorage.setItem("Estilo",1);
+  $.get("https://girabahiense.herokuapp.com/userState/getUserState",function(data){
+    console.log(data);
+    var estiloActual=data[0].estiloActual;
+    console.log(estiloActual);
+    $("#hojaEstilo").attr("href","stylesheets/Estilo"+estiloActual+".css");
+    localStorage.setItem("Estilo",estiloActual);
+    cambiarEstiloMapa(estiloActual);
+    var local=data[0].localSeleccionado;
+    if (local!='Nada'){
+      for (var i = 0; i < markers.length; i++) {
+        if (local==markers[i].title){
+          map.panTo(markers[i].position);
+          setearInformacionLocal(AlmacenamientoLocales.get(local));
+          break;
+        }
+      }
+    }
+  });
 }

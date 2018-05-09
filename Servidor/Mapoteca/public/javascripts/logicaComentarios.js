@@ -1,37 +1,48 @@
+const templateComment=Twig.twig({
+  href: "shared/renderComment.twig",async:false
+});
 
-var coleccionLocales;
-var bounds;
-
-var AlmacenamientoLocales=new Map();
-
-
-
-
-function cambiarEstilo(){
-    var estiloActual=localStorage.getItem("Estilo");
-    var estiloSiguiente=Math.floor(1/estiloActual+1);
-    $("#hojaEstilo").attr("href","stylesheets/Estilo"+estiloSiguiente+".css");
-    localStorage.setItem("Estilo",estiloSiguiente);
-    cambiarEstiloMapa(estiloSiguiente);
-}
 
 function cargarImagenes(){
   var local=$("#NombreLocal").html();
-  if (local!="Nombre"){
-    $("#imagen1").attr('src',"/images/"+local+"1.jpg");
-    $("#imagen2").attr('src',"/images/"+local+"2.jpg");
-    $("#imagen3").attr('src',"/images/"+local+"3.jpg");
-  }
+  $("#slider").html('<div class="carousel-item active">    <img src="/images/'+local+'1.jpg" class="d-block w-100 images" alt="First slide">  </div>  <div class="carousel-item">    <img src="/images/'+local+'2.jpg" class="d-block w-100 images" alt="Second slide">  </div> <div class="carousel-item"><img src="/images/'+local+'3.jpg" class="d-block w-100 images" alt="Third slide"></div>');
+  $("#slider2").html('<div class="carousel-item active">    <img src="/images/'+local+'1.jpg" class="d-block w-100 images" alt="First slide">  </div>  <div class="carousel-item">    <img src="/images/'+local+'2.jpg" class="d-block w-100 images" alt="Second slide">  </div> <div class="carousel-item"><img src="/images/'+local+'3.jpg" class="d-block w-100 images" alt="Third slide"></div>');
 }
 
 function cargarComentarios(){
+    cargarImagenes();
+    var localSeleccionado=$("#NombreLocal").html();
+    $("#comment-list").html("");
+    $.post('https://girabahiense.herokuapp.com/apiComment/get',{"local":localSeleccionado},function(data){
+      for(var i=0;i<data.length;i++){
+        if (data[i].comment!=''){
+          $("#comments-list").append($(templateComment.render({"user":data[i].nombre,"comment":data[i].comment})));
+        }
+      }
+    });
+}
 
+function getProfile(user){
+  gapi.client.load('plus','v1', function(){
+   var request = gapi.client.plus.people.get({
+     'userId': 'user'
+   });
+   request.execute(function(resp) {
+     console.log('Retrieved profile for:' + resp.displayName);
+   });
+  });
 }
 
 function guardarComentario(){
   var textoComentario=$("#comment").val();
-  $("#comment").val("Ingrese un comentario...")
+  var localSeleccionado=$("#NombreLocal").html();
   var valoracion=obtenerValoracion();
+  if ((textoComentario!='') || (valoracion!=0)){
+    $.post('https://girabahiense.herokuapp.com/apiComment/save',{"comment":textoComentario,"value":valoracion,"local":localSeleccionado},function(data){
+        
+    });
+  }
+
   console.log(valoracion);
 }
 

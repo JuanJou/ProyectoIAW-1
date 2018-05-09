@@ -3,13 +3,15 @@ const mongoose = require('mongoose');
 
 const commentSchema=new mongoose.Schema({
   usuario:{
-    type:mongoose.Schema.Types.ObjectID,
+    type:String,
     required:true},
   comment:String,
   value:Number,
   local:{
     type:String,
-    required:true}
+    required:true},
+  imagen:String,
+  nombre:String
 });
 
 mongoose.model('Comentarios',commentSchema);

@@ -3,13 +3,22 @@
   <head>
     <title>{{ title }}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="stylesheets/estilosNavBar.css" rel="stylesheet">
-    <link href="stylesheets/EstiloComun.css" rel="stylesheet">
-    <link href="stylesheets/EstiloPuntaje.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://girabahiense.herokuapp.com/stylesheets/estilosNavBar.css" rel="stylesheet">
+    <link href="https://girabahiense.herokuapp.com/stylesheets/EstiloComun.css" rel="stylesheet">
+    <link href="https://girabahiense.herokuapp.com/stylesheets/EstiloPuntaje.css" rel="stylesheet">
+    <link href="https://girabahiense.herokuapp.com/stylesheets/EstiloComentario.css" rel="stylesheet">
+    <link href="https://girabahiense.herokuapp.com/stylesheets/bootstrap-social-folder/bootstrap-social.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Raleway:400i" rel="stylesheet">
-    <script type="text/javascript" src="javascripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://girabahiense.herokuapp.com/javascripts/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://girabahiense.herokuapp.com/javascripts/logicaUsuarios.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/client:plusone.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/twigjs/twig.min.js"></script>
     {%block links%}{%endblock%}
-    <meta name="google-signin-client_id" content="926151368412-6q1gmvli7atfbho0mpfhrvfijtkm9chp">
+    <meta name="google-signin-client_id" content="926151368412-fio82i05ctvco0qnencejee7tpao5gdk"></meta>
   </head>
   <body onload="inicializar()">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -25,10 +34,13 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <div class="g-signin2 boton-in" data-onsuccess="onSignIn" data-text="Sign in"></div>
+              <a href="/auth/google" class="btn btn-social-icon btn-google">
+                  <span class="fa fa-google" onclick="iniciarSesion()"></span>
+              </a>
             </li>
           </ul>
         </div>
+
         <div class="onoffswitch">
           <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked onclick="cambiarEstilo()">
           <label class="onoffswitch-label" for="myonoffswitch">
@@ -42,7 +54,7 @@
     <div class="espacio">
       <div style="margin: auto;width: 500px">
             <div class="input-group">
-              <input id="buscador" type="text" class="form-control busqueda" aria-label="Text input with dropdown button" placeholder="Buscar local...">
+              <input id="buscador" type="search" class="form-control busqueda" aria-label="Text input with dropdown button" placeholder="Buscar local..." onkeypress="isEnter(event)">
               <div class="input-group-btn">
                 <button id="filtros" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Todos
@@ -80,7 +92,7 @@
         <!--Copyright-->
         <div class="footer-copyright py-3 text-center">
             © 2018 Copyright:
-            <a href="https://uns-iaw-2018-com09.github.io/ProyectoIAW/">Proyecto</a>
+            <a href="">Proyecto</a>
         </div>
         <!--/.Copyright-->
 
@@ -90,8 +102,8 @@
 
   </body>
 
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+    <script defer async>loadUser()</script>
 </html>

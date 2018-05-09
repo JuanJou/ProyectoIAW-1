@@ -2,12 +2,11 @@
 
 {%block links%}
   <link href="stylesheets/estilosNavBar.css" rel="stylesheet">
-  <link id="hojaEstilo" href="stylesheets/Estilo1.css" rel="stylesheet">
+  <link id="hojaEstilo" href="https://girabahiense.herokuapp.com/stylesheets/Estilo1.css" rel="stylesheet">
 
-  <script type="text/javascript" src="javascripts/logicaInformacion.js"></script>
-  <script type="text/javascript" src="javascripts/logicaUsuarios.js"></script>
-  <script type="text/javascript" src="javascripts/logicaMapa.js"></script>
-  <script type="text/javascript" src="javascripts/logicaComentarios.js"></script>
+  <script type="text/javascript" src="https://girabahiense.herokuapp.com/javascripts/logicaInformacion.js"></script>
+  <script type="text/javascript" src="https://girabahiense.herokuapp.com/javascripts/logicaMapa.js"></script>
+  <script type="text/javascript" src="https://girabahiense.herokuapp.com/javascripts/logicaComentarios.js"></script>
 
   <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfErfn3Hop9TIhHgcFawgNeQhrli9-0Ac&callback=myMap"></script>
 {%endblock%}
@@ -59,51 +58,18 @@
     </div>
     <h4 id="HoraOpen" class="font-weight-light">Hora de apertura:</h4>
     <h4 id="HoraClose" class="font-weight-light">Hora de cierre:</h4>
-    <a id="facebook" target="_blank" class="link">
+    <a id="facebook" target="_blank" class="link"><img src="images/facebook.png">Pagina de Facebook</a>
 
     <div class="comentarios">
       <button type="button" class="btn btn-info boton" data-toggle="modal" data-target="#exampleModalLong" onclick="cargarComentarios()">Ver comentarios</button>
-      <button id="botonPuntuar" type="button" class="btn btn-info boton" data-toggle="modal" data-target="#modalPuntaje" onclick="cargarImagenes()" disabled>Puntuar</button>
+      <button id="botonPuntuar" type="button" class="btn btn-info boton" data-toggle="modal" data-target="#modalPuntaje" onclick="cargarImagenes()">Puntuar</button>
     </div>
   </div>
 
-      <!-- Modal -->
-  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Comentarios</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div id="campoComentarios" class="modal-body modal-comentarios">
-          <div>Primer comentario</div>
-          <hr>
-          <div>Segundo comentario</div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="modal fade" id="modalPuntaje" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Puntaje</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        {% include "shared/carouselImages.twig" %}
-        {% include "shared/comentarios.twig" %}
-        <div class="modal-footer">
-          <button type="button" class="btn btn-info boton" data-dismiss="modal" onclick="guardarComentario()">Enviar</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  {%include "shared/modalComentarios.twig"%}
+
+  {%include "shared/modalPuntaje.twig"%}
+
+
 {% endblock %}

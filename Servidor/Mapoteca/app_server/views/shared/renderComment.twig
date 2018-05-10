@@ -1,11 +1,15 @@
 <li>
   <div class="comment-main-level">
     <!-- Avatar -->
-    <div class="comment-avatar"><img src="/images/perfil.jpg" alt=""></div>
+    <div class="comment-avatar">
+      <a href="https://plus.google.com/u/0/{{id}}" target="_blank">
+        <img src="/images/perfil.jpg" alt="">
+      </a>
+    </div>
     <!-- Contenedor del Comentario -->
     <div class="comment-box">
       <div class="comment-head">
-        <h6 class="comment-name"><a href="">{{user}}</a></h6>
+        <h6 class="comment-name"><a href="https://plus.google.com/u/0/{{id}}" target="_blank">{{user}}</a></h6>
       </div>
       <div class="comment-content">
         {{comment}}

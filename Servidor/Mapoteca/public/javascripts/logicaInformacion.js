@@ -13,11 +13,14 @@ function buscarLocal(){
 
 function cargarBusqueda()
 {
+  //asasd
+  //push
   var locales=[];
   var nombres = AlmacenamientoLocales.keys();
   var i=0;
   for (let local of nombres){
     locales[i]=local;
+    i++;
   }
   $("#buscador").autocomplete({
     source: locales,
@@ -55,6 +58,7 @@ function setearInformacionLocal(local){
   $("#Clasificacion").html("Clasificacion: "+local.valoracion);
   $("#Telefono").html(local.telefono);
   $("#facebook").attr('href',local.facebook);
+  return false;
 }
 
 function mostrarHorario(dia){
@@ -66,11 +70,12 @@ function mostrarHorario(dia){
       if (objetoLocal.horario[i].Dia==dia){
          $("#HoraOpen").html("Hora de apertura: "+objetoLocal.horario[i].horarioApertura);
          $("#HoraClose").html("Hora de cierre: "+objetoLocal.horario[i].horarioCierra);
-         return;
+         return false;
       }
     }
     $("#HoraOpen").html("Hora de apertura: Cerrado");
     $("#HoraClose").html("Hora de apertura: Cerrado");
+    return false;
   }
 }
 

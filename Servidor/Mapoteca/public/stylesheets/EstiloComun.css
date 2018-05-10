@@ -90,3 +90,13 @@
   padding-top: 10px;
   height: 10px;
 }
+
+.ui-menu .ui-menu-item{
+    background:white;
+		width: 350px;
+}
+
+.ui-menu .ui-menu-item:hover{
+    background:#21618C;
+		width: 350px;
+}

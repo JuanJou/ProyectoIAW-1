@@ -12,6 +12,7 @@ const getUserState=function(req,res){
         usuario=new User({"user":req.user.id});
         usuario.save();
         res.send([usuario]);
+        return;
       }
       res.send(usuario);
     }
@@ -46,4 +47,21 @@ const setUserStateLocal=function(req,res){
   });
 }
 
-module.exports={getUserState,setUserStateStyle,setUserStateLocal};
+const renderStyle=function(req,res){
+  User.find({user:req.user.id}).exec((err, usuario)=>{
+    if (err) { 
+      res.render('error',{
+        error:err
+      });    
+    } else {
+      if (!usuario.length){
+        res.render('index1',{title:'GiraBahiense'});
+      }
+      else{
+          res.render('index'+usuario[0].estiloActual,{title:'GiraBahiense'});
+      }
+    }
+  });
+}
+
+module.exports={getUserState,setUserStateStyle,setUserStateLocal,renderStyle};

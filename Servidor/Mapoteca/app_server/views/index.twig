@@ -2,7 +2,7 @@
 
 {%block links%}
   <link href="stylesheets/estilosNavBar.css" rel="stylesheet">
-  <link id="hojaEstilo" href="https://girabahiense.herokuapp.com/stylesheets/Estilo1.css" rel="stylesheet">
+  {%block estilo%}{%endblock%}
 
   <script type="text/javascript" src="https://girabahiense.herokuapp.com/javascripts/logicaInformacion.js"></script>
   <script type="text/javascript" src="https://girabahiense.herokuapp.com/javascripts/logicaMapa.js"></script>
@@ -47,13 +47,13 @@
         Elegir dia...
       </button>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="#" onclick="mostrarHorario(this.innerHTML)">Domingo</a>
-        <a class="dropdown-item" href="#" onclick="mostrarHorario(this.innerHTML)">Lunes</a>
-        <a class="dropdown-item" href="#" onclick="mostrarHorario(this.innerHTML)">Martes</a>
-        <a class="dropdown-item" href="#" onclick="mostrarHorario(this.innerHTML)">Miercoles</a>
-        <a class="dropdown-item" href="#" onclick="mostrarHorario(this.innerHTML)">Jueves</a>
-        <a class="dropdown-item" href="#" onclick="mostrarHorario(this.innerHTML)">Viernes</a>
-        <a class="dropdown-item" href="#" onclick="mostrarHorario(this.innerHTML)">Sabado</a>
+        <a class="dropdown-item" href="#" onclick="mostrarHorario(this.innerHTML);return false;">Domingo</a>
+        <a class="dropdown-item" href="#" onclick="mostrarHorario(this.innerHTML);return false;">Lunes</a>
+        <a class="dropdown-item" href="#" onclick="mostrarHorario(this.innerHTML);return false;">Martes</a>
+        <a class="dropdown-item" href="#" onclick="mostrarHorario(this.innerHTML);return false;">Miercoles</a>
+        <a class="dropdown-item" href="#" onclick="mostrarHorario(this.innerHTML);return false;">Jueves</a>
+        <a class="dropdown-item" href="#" onclick="mostrarHorario(this.innerHTML);return false;">Viernes</a>
+        <a class="dropdown-item" href="#" onclick="mostrarHorario(this.innerHTML);return false;">Sabado</a>
       </div>
     </div>
     <h4 id="HoraOpen" class="font-weight-light">Hora de apertura:</h4>

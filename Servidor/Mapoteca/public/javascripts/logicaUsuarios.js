@@ -25,20 +25,21 @@ function loadUser(){
   localStorage.setItem("Estilo",1);
   $.get("https://girabahiense.herokuapp.com/userState/getUserState",function(data){
     console.log(data);
-    var estiloActual=data[0].estiloActual;
-    console.log(estiloActual);
-    $("#hojaEstilo").attr("href","stylesheets/Estilo"+estiloActual+".css");
-    localStorage.setItem("Estilo",estiloActual);
-    cambiarEstiloMapa(estiloActual);
-    var local=data[0].localSeleccionado;
-    if (local!='Nada'){
-      for (var i = 0; i < markers.length; i++) {
-        if (local==markers[i].title){
-          map.panTo(markers[i].position);
-          setearInformacionLocal(AlmacenamientoLocales.get(local));
-          break;
+    if (data!="No loggeado"){
+      $("#btnLog").html("Sesion iniciada");
+      var estiloActual=data[0].estiloActual;
+      localStorage.setItem("Estilo",estiloActual);
+      cambiarEstiloMapa(estiloActual);
+      var local=data[0].localSeleccionado;
+      if (local!='Nada'){
+        for (var i = 0; i < markers.length; i++) {
+          if (local==markers[i].title){
+            map.panTo(markers[i].position);
+            setearInformacionLocal(AlmacenamientoLocales.get(local));
+            break;
+          }
         }
-      }
+    }
     }
   });
 }

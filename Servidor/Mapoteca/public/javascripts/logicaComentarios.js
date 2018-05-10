@@ -12,25 +12,14 @@ function cargarImagenes(){
 function cargarComentarios(){
     cargarImagenes();
     var localSeleccionado=$("#NombreLocal").html();
-    $("#comment-list").html("");
+    $("#comments-list").empty();
     $.post('https://girabahiense.herokuapp.com/apiComment/get',{"local":localSeleccionado},function(data){
       for(var i=0;i<data.length;i++){
         if (data[i].comment!=''){
-          $("#comments-list").append($(templateComment.render({"user":data[i].nombre,"comment":data[i].comment})));
+          $("#comments-list").append($(templateComment.render({"user":data[i].nombre,"comment":data[i].comment,"id":data[i].usuario})));
         }
       }
     });
-}
-
-function getProfile(user){
-  gapi.client.load('plus','v1', function(){
-   var request = gapi.client.plus.people.get({
-     'userId': 'user'
-   });
-   request.execute(function(resp) {
-     console.log('Retrieved profile for:' + resp.displayName);
-   });
-  });
 }
 
 function guardarComentario(){
@@ -39,7 +28,9 @@ function guardarComentario(){
   var valoracion=obtenerValoracion();
   if ((textoComentario!='') || (valoracion!=0)){
     $.post('https://girabahiense.herokuapp.com/apiComment/save',{"comment":textoComentario,"value":valoracion,"local":localSeleccionado},function(data){
-        
+        if (data=="No loggeado"){
+          alert("Debe estar loggeado para hacer un comentario");
+        }
     });
   }
 

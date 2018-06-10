@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const User = mongoose.model('user');
+const User = mongoose.model('ourUsers');
 
 const getUserState=function(req,res){
   User.find({user:req.user.id}).exec((err, usuario)=>{
@@ -18,6 +18,9 @@ const getUserState=function(req,res){
     }
   });
 }
+
+
+
 
 const setUserStateStyle=function(req,res){
   User.update({user:req.user.id},{estiloActual:req.body.style},	{upsert: true, setDefaultsOnInsert: true},(err, usuario) => {
@@ -55,10 +58,10 @@ const renderStyle=function(req,res){
       });    
     } else {
       if (!usuario.length){
-        res.render('index1',{title:'GiraBahiense'});
+        res.render('index1',{title:'GiraBahiense',logged:true});
       }
       else{
-          res.render('index'+usuario[0].estiloActual,{title:'GiraBahiense'});
+          res.render('index'+usuario[0].estiloActual,{title:'GiraBahiense',logged:true});
       }
     }
   });

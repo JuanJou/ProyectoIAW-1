@@ -249,6 +249,20 @@ body {
 	border-radius: 3px;
 }
 
+.aspectRatio{
+  width:400px;
+  height: 345px;
+  object-fit: contain;
+  margin: auto;
+}
+
+.aspectFoto {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  margin:auto;
+}
+
 /** =====================
  * Responsive
  ========================*/

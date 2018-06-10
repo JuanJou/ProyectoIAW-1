@@ -6,6 +6,7 @@ var bounds;
 
 var AlmacenamientoLocales=new Map();
 
+var location;
 
 function myMap() {
     var mapProp= {
@@ -16,13 +17,43 @@ function myMap() {
     };
     map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
     bounds=new google.maps.LatLngBounds();
-    $.get("https://girabahiense.herokuapp.com/stylesheets/EstiloMapa1.json",function(data){
+    $.get("/stylesheets/EstiloMapa1.json",function(data){
       map.setOptions(data);
     });
+
+    if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            console.log("nuevo");
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            $.get("/userState/userLogged",function(data){
+              console.log("estado");
+              var gender="male";
+              if (data.user!=undefined){
+                gender=data.user.gender;
+              }
+              location = new google.maps.Marker({
+                position:pos,
+                title:"Ubicacion",
+                icon:"/images/"+gender+".png",
+                map: map});
+              bounds.extend(new google.maps.LatLng(location.position.lat(),location.position.lng()));
+            });
+
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+        cargarMarcador();
 }
 
 function cargarMarcador(){
-  $.get("https://girabahiense.herokuapp.com/searchLocals",function(data){
+  $.get("/searchLocals",function(data){
     locales=JSON.parse(data);
     coleccionLocales=locales;
     for(var i=0;i<locales.length;i++){
@@ -37,7 +68,7 @@ function cargarMarcador(){
       bounds.extend(new google.maps.LatLng(marker.position.lat(),marker.position.lng()));
       (function (marker,i) {
                 google.maps.event.addListener(marker, "click", function (i) {
-                  $.post('https://girabahiense.herokuapp.com/userState/updateLocal',{"local":marker.title},function(data){
+                  $.post('/userState/updateLocal',{"local":marker.title},function(data){
                     console.log(data);
                   });
                     map.panTo(marker.position);
@@ -52,7 +83,7 @@ function cargarMarcador(){
 }
 
 function cambiarEstiloMapa(estilo){
-  $.get("https://girabahiense.herokuapp.com/stylesheets/EstiloMapa"+estilo+".json",function(data){
+  $.get("/stylesheets/EstiloMapa"+estilo+".json",function(data){
     map.setOptions(data);
   });
 }
@@ -79,4 +110,34 @@ function agregarTodosLosMarcadores(){
   for (var i = 0; i < markers.length; i++) {
     markers[i].setMap(map);
   }
+}
+
+
+
+function getPhotos(local){
+  var service=new google.maps.places.PlacesService(map);
+  var objLocal=AlmacenamientoLocales.get(local);
+  var location=new google.maps.LatLng(objLocal.ubicacion[0],objLocal.ubicacion[1]);
+  var local;
+  request={
+    location:location,
+    radius:'10',
+    name:local
+  };
+  console.log(request);
+  service.nearbySearch(request,function(result,status){
+    console.log(result);
+    if (status == google.maps.places.PlacesServiceStatus.OK){
+      service.getDetails({placeId:result[0].place_id},function(place,status){
+        $("#slider2").empty();
+        $("#slider").empty();
+        if (place.photos!=undefined){
+          place.photos.forEach(function(element,index){
+            $("#slider2").append($(templatePhoto.render({url:element.getUrl({maxWidth:400,maxHeight:345}),number:index})));
+            $("#slider").append($(templatePhoto.render({url:element.getUrl({maxWidth:400,maxHeight:345}),number:index})));
+          });
+        }
+      });
+    }
+  });
 }

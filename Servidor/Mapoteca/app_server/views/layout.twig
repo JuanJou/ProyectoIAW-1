@@ -4,17 +4,17 @@
     <title>{{ title }}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://girabahiense.herokuapp.com/stylesheets/estilosNavBar.css" rel="stylesheet">
-    <link href="https://girabahiense.herokuapp.com/stylesheets/EstiloComun.css" rel="stylesheet">
-    <link href="https://girabahiense.herokuapp.com/stylesheets/EstiloPuntaje.css" rel="stylesheet">
-    <link href="https://girabahiense.herokuapp.com/stylesheets/EstiloComentario.css" rel="stylesheet">
-    <link href="https://girabahiense.herokuapp.com/stylesheets/bootstrap-social-folder/bootstrap-social.css" rel="stylesheet">
+    <link href="/stylesheets/estilosNavBar.css" rel="stylesheet">
+    <link href="/stylesheets/EstiloComun.css" rel="stylesheet">
+    <link href="/stylesheets/EstiloPuntaje.css" rel="stylesheet">
+    <link href="/stylesheets/EstiloComentario.css" rel="stylesheet">
+    <link href="/stylesheets/bootstrap-social-folder/bootstrap-social.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Raleway:400i" rel="stylesheet">
     <script type="text/javascript" src="https://girabahiense.herokuapp.com/javascripts/jquery-3.3.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="https://girabahiense.herokuapp.com/javascripts/logicaUsuarios.js"></script>
+    <script type="text/javascript" src="/javascripts/logicaUsuarios.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js?publisherid=110967630299632321627" async defer></script>
     <script src="https://apis.google.com/js/client:plusone.js" type="text/javascript"></script>
     <script type="text/javascript" src="/twigjs/twig.min.js"></script>
     {%block links%}{%endblock%}
@@ -33,16 +33,19 @@
             </li>
           </ul>
           <ul class="navbar-nav ml-auto">
+            {%if logged==false%}
             <li class="nav-item">
               <a href="/auth/google">
                 <button id="btnLog" type="button" class="btn btnLogin"><i class="fa fa-google-plus pr-1"></i>Sign in</button>
               </a>
             </li>
+            {%else%}
             <li class="nav-item">
               <a href="/logout">
                 <button type="button" class="btn btnLogin">Logout</button>
               </a>
             </li>
+            {%endif%}
           </ul>
         </div>
 

@@ -1,22 +1,18 @@
-const mongoose = require('mongoose');
-const Local = mongoose.model('local2');
+
+const render=require('../controllers/userStateAPI');
 
 /* GET home page */
-const index = function(req, res) {
-	Local
-		.find()
-		.exec((err, locales) => {
-			if (err) { 
-				res.render('error', {
-					error : err
-				});    
-	        } else {
-				res.send(JSON.stringify(locales));
-			}
-		})
-};
+ 
+const home=function(req,res,next){
+  if (req.isAuthenticated()){
+      render.renderStyle(req,res);
+  }else{
+    res.render('index1',{title:'GiraBahiense',logged:false})
+  }
+}
 
+const readme=function(req,res,next){
+  res.render('readme');
+}
 
-module.exports = {
-  index
-}; 
+module.exports={home,readme};

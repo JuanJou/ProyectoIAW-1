@@ -16,8 +16,8 @@ const save=function(req,res){
 }
 
 const get=function(req,res){
-  console.log(req.body.local);
-  comentario.find({local:req.body.local}).exec((err, comments)=>{
+  console.log(req.params);
+  comentario.find({local:req.params.name}).exec((err, comments)=>{
     if (err) { 
       res.render('error', {
         error : err

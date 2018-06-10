@@ -1,7 +1,6 @@
 var sesionIniciada=false;
 
 function inicializar(){
-
 }
 
 
@@ -16,14 +15,16 @@ function cambiarEstilo(){
     $("#hojaEstilo").attr("href","stylesheets/Estilo"+estiloSiguiente+".css");
     localStorage.setItem("Estilo",estiloSiguiente);
     cambiarEstiloMapa(estiloSiguiente);
-    $.post('https://girabahiense.herokuapp.com/userState/updateStyle',{"style":estiloSiguiente},function(data){
+    $.post('/userState/updateStyle',{"style":estiloSiguiente},function(data){
       console.log(data);
     });
 }
 
 function loadUser(){
+
   localStorage.setItem("Estilo",1);
-  $.get("https://girabahiense.herokuapp.com/userState/getUserState",function(data){
+
+  $.get("/userState/getUserState",function(data){
     console.log(data);
     if (data!="No loggeado"){
       $("#btnLog").html("Sesion iniciada");

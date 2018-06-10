@@ -8,7 +8,7 @@
   <script type="text/javascript" src="https://girabahiense.herokuapp.com/javascripts/logicaMapa.js"></script>
   <script type="text/javascript" src="https://girabahiense.herokuapp.com/javascripts/logicaComentarios.js"></script>
 
-  <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfErfn3Hop9TIhHgcFawgNeQhrli9-0Ac&callback=myMap"></script>
+  <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfErfn3Hop9TIhHgcFawgNeQhrli9-0Ac&callback=myMap&libraries=places"></script>
 {%endblock%}
 
 
@@ -17,7 +17,6 @@
     <h2>Mapa de Bahía Blanca</h2>
     <div id="googleMap" class="mapa"></div>
 
-    <script defer>cargarMarcador()</script>
   </div>
 
   <div id="iconosMapa" class="iconos">

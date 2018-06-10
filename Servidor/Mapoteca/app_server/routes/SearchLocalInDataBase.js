@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-const cntrlMain=require("../controllers/main")
+const cntrlLocales=require("../controllers/gestionLocales")
 
 /* GET home page. */
-router.get('/',cntrlMain.index);
+router.get('/',cntrlLocales.get);
 module.exports = router;

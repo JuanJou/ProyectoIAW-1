@@ -1,19 +1,21 @@
 const templateComment=Twig.twig({
   href: "shared/renderComment.twig",async:false
 });
+const templatePhoto=Twig.twig({
+  href: "shared/carouselItem.twig",async:false
+});
 
 
 function cargarImagenes(){
   var local=$("#NombreLocal").html();
-  $("#slider").html('<div class="carousel-item active">    <img src="/images/'+local+'1.jpg" class="d-block w-100 images" alt="First slide">  </div>  <div class="carousel-item">    <img src="/images/'+local+'2.jpg" class="d-block w-100 images" alt="Second slide">  </div> <div class="carousel-item"><img src="/images/'+local+'3.jpg" class="d-block w-100 images" alt="Third slide"></div>');
-  $("#slider2").html('<div class="carousel-item active">    <img src="/images/'+local+'1.jpg" class="d-block w-100 images" alt="First slide">  </div>  <div class="carousel-item">    <img src="/images/'+local+'2.jpg" class="d-block w-100 images" alt="Second slide">  </div> <div class="carousel-item"><img src="/images/'+local+'3.jpg" class="d-block w-100 images" alt="Third slide"></div>');
+  var fotos=getPhotos(local);
 }
 
 function cargarComentarios(){
     cargarImagenes();
     var localSeleccionado=$("#NombreLocal").html();
     $("#comments-list").empty();
-    $.post('https://girabahiense.herokuapp.com/apiComment/get',{"local":localSeleccionado},function(data){
+    $.get('/apiComment/get'+localSeleccionado,function(data){
       for(var i=0;i<data.length;i++){
         if (data[i].comment!=''){
           $("#comments-list").append($(templateComment.render({"user":data[i].nombre,"comment":data[i].comment,"id":data[i].usuario})));
@@ -27,7 +29,7 @@ function guardarComentario(){
   var localSeleccionado=$("#NombreLocal").html();
   var valoracion=obtenerValoracion();
   if ((textoComentario!='') || (valoracion!=0)){
-    $.post('https://girabahiense.herokuapp.com/apiComment/save',{"comment":textoComentario,"value":valoracion,"local":localSeleccionado},function(data){
+    $.post('/apiComment/save',{"comment":textoComentario,"value":valoracion,"local":localSeleccionado},function(data){
         if (data=="No loggeado"){
           alert("Debe estar loggeado para hacer un comentario");
         }

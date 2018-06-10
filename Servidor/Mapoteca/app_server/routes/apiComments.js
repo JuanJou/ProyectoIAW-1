@@ -4,6 +4,6 @@ const controllerCmt=require('../controllers/comentarios');
 const middleware=require('../auth/middleware');
 
 router.post('/save',middleware,controllerCmt.save);
-router.post('/get',controllerCmt.get);
+router.get('/get:name',controllerCmt.get);//Cambiar por get
 
 module.exports=router;

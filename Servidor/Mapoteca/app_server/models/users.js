@@ -11,4 +11,4 @@ const userSchema=new mongoose.Schema({
     default:1}
 });
 
-mongoose.model("user",userSchema);
+mongoose.model("ourUsers",userSchema);
